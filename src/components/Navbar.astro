@@ -1,0 +1,77 @@
+---
+const links: [href: string, label: string][] = [
+  ["#", "Home"],
+  ["#projects", "Projects"],
+  ["#about", "About"],
+];
+---
+
+<nav class="flex-row-center relative">
+  {links.map(([href, label]) => <a href={href}>{label}</a>)}
+</nav>
+<style>
+  a {
+    text-decoration: none;
+    color: hsl(var(--white));
+  }
+  a:is(:visited) {
+    color: hsl(var(--white));
+  }
+  a.selected {
+    font-weight: bold;
+    color: hsl(var(--orange));
+  }
+  nav {
+    --underline-offset-width: 10px;
+    --underline-offset-x: 0px;
+  }
+  nav::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: var(--underline-offset-width);
+    transform: translateX(var(--underline-offset-x));
+    height: 2px;
+    background-color: hsl(var(--orange));
+  }
+</style>
+<script>
+  function onHashChange() {
+    const options = document.querySelectorAll("nav > a");
+    options.forEach((option) => {
+      option.classList.remove("selected");
+      if (
+        option.getAttribute("href")?.substring(1) ===
+        window.location.hash.substring(1)
+      ) {
+        option.classList.add("selected");
+      }
+    });
+  }
+
+  onHashChange();
+  window.addEventListener("hashchange", onHashChange);
+
+  const navbar = document.querySelector("nav")!;
+
+  function getSelectedOption(): HTMLElement {
+    return document.querySelector("nav > a[class='selected']") as HTMLElement;
+  }
+
+  function moveUnderlineToElement(el: HTMLElement) {
+    navbar.style.cssText = `--underline-offset-width: ${el.offsetWidth}px; --underline-offset-x: ${el.offsetLeft}px;`;
+  }
+
+  function onNavOptionHover(event: Event) {
+    moveUnderlineToElement(event.target as HTMLElement);
+  }
+
+  const navbarOptions = document.querySelectorAll("nav > a");
+  navbarOptions.forEach((option) => {
+    option.addEventListener("mouseover", onNavOptionHover);
+    option.addEventListener("focus", onNavOptionHover);
+  });
+
+  moveUnderlineToElement(getSelectedOption());
+</script>

@@ -1,6 +1,8 @@
 ---
+import Navbar from "../components/Navbar.astro";
+
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,23 +10,65 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-	}
-	html {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		background: #13151a;
-	}
+  :root {
+    --grey-50: 223 18% 98%;
+    --grey-100: 223 18% 95%;
+    --grey-200: 223 16% 85%;
+    --grey-300: 223 14% 75%;
+    --grey-400: 223 12% 65%;
+    --grey-500: 223 10% 55%;
+    --grey-600: 223 8% 45%;
+    --grey-700: 223 6% 35%;
+    --grey-800: 223 4% 25%;
+    --grey-900: 223 2% 15%;
+    --grey-950: 223 2% 8%;
+
+    --white: 0 0% 98%;
+
+    --orange: 22 84% 60%;
+    --purple: 260 50% 40%;
+
+    --pink: 328, 78%, 66%;
+    --blue: 208, 68%, 51%;
+    --green: 88, 68%, 51%;
+  }
+  html {
+    font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
+    background: hsl(var(--grey-950));
+  }
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  .relative {
+    position: relative;
+  }
+  .absolute {
+    position: absolute;
+  }
 </style>
