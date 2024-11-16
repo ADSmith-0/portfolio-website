@@ -6,8 +6,14 @@ const links: [href: string, label: string][] = [
 ];
 ---
 
-<nav class="flex-row-center relative">
-  {links.map(([href, label]) => <a href={href}>{label}</a>)}
+<nav class="flex-row-center relative ml-7">
+  {
+    links.map(([href, label]) => (
+      <a href={href} class="px-7 py-4">
+        {label}
+      </a>
+    ))
+  }
 </nav>
 <style>
   a {
@@ -22,8 +28,8 @@ const links: [href: string, label: string][] = [
     color: hsl(var(--orange));
   }
   nav {
-    --underline-offset-width: 10px;
-    --underline-offset-x: 0px;
+    --underline-offset-width: 0;
+    --underline-offset-x: 0;
   }
   nav::after {
     content: "";
@@ -32,7 +38,11 @@ const links: [href: string, label: string][] = [
     bottom: 0;
     width: var(--underline-offset-width);
     transform: translateX(var(--underline-offset-x));
-    height: 2px;
+    height: var(--spacing-1);
+    transition:
+      height 0.2s,
+      width 0.2s,
+      transform 0.3s ease-in-out;
     background-color: hsl(var(--orange));
   }
 </style>
@@ -55,9 +65,17 @@ const links: [href: string, label: string][] = [
 
   const navbar = document.querySelector("nav")!;
 
-  function getSelectedOption(): HTMLElement {
-    return document.querySelector("nav > a[class='selected']") as HTMLElement;
+  function resetUnderline() {
+    const selectedOption = document.querySelector(
+      `nav > a[href='${window.location.hash || "#"}']`,
+    ) as HTMLElement;
+    moveUnderlineToElement(selectedOption);
   }
+
+  resetUnderline();
+
+  navbar.addEventListener("mouseout", resetUnderline);
+  navbar.addEventListener("focusout", resetUnderline);
 
   function moveUnderlineToElement(el: HTMLElement) {
     navbar.style.cssText = `--underline-offset-width: ${el.offsetWidth}px; --underline-offset-x: ${el.offsetLeft}px;`;
@@ -72,6 +90,4 @@ const links: [href: string, label: string][] = [
     option.addEventListener("mouseover", onNavOptionHover);
     option.addEventListener("focus", onNavOptionHover);
   });
-
-  moveUnderlineToElement(getSelectedOption());
 </script>
