@@ -1,22 +1,20 @@
 ---
 interface Props {
   title: string;
-  body: string;
   href: string;
+  image: {
+    src: string;
+    alt: string;
+  };
 }
 
-const { href, title, body } = Astro.props;
+const { title, href, image } = Astro.props;
 ---
 
-<li class="link-card">
-  <a href={href}>
-    <h2>
-      {title}
-      <span>&rarr;</span>
-    </h2>
-    <p>
-      {body}
-    </p>
+<li class="link-card flex-row-center px-4 py-2">
+  <a href={href} class="flex-row-center">
+    <img src={image.src} alt={image.alt} height="100" width="100" />
+    <h2 class="m-0">{title}</h2>
   </a>
 </li>
 <style>
