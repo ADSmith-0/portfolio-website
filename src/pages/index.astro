@@ -37,10 +37,9 @@ import Typewriter from "../components/Typewriter.astro";
 <style>
   main {
     margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
+    width: calc(100% - var(--spacing-4));
+    max-width: 1000px;
+    color: hsl(var(--white));
     font-size: 20px;
     line-height: 1.6;
   }
@@ -54,17 +53,17 @@ import Typewriter from "../components/Typewriter.astro";
     z-index: -1;
   }
   h1 {
-    font-size: 4rem;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.2em;
     text-align: center;
-    margin-bottom: 1em;
     color: hsl(var(--white));
   }
   .link-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
+    gap: var(--spacing-4);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    place-items: center;
     padding: 0;
   }
 </style>
