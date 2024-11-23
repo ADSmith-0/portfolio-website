@@ -1,0 +1,27 @@
+<type-writer>
+  <slot />
+</type-writer>
+
+<script>
+  function sleep(time: number) {
+    return new Promise((res) => setTimeout(() => res(true), time));
+  }
+
+  class Typewriter extends HTMLElement {
+    #content = "";
+
+    async connectedCallback() {
+      const el = this.querySelector("*") as HTMLElement;
+      el.style.height = el.clientHeight + "px";
+      this.#content = el.textContent!;
+      el.textContent = "";
+
+      for (let char of this.#content) {
+        await sleep(100);
+        el.textContent += char;
+      }
+    }
+  }
+
+  customElements.define("type-writer", Typewriter);
+</script>
