@@ -11,31 +11,15 @@ import { projects } from "src/projects";
       <h1>Hi, I'm Adam</h1>
     </Typewriter>
     <ul role="list" class="link-card-grid">
-      <Card
-        title="Grately"
-        href="https://docs.astro.build/"
-        image={{ src: "", alt: "Grately icon" }}
-      />
-      <Card
-        title="Chess"
-        href="https://astro.build/integrations/"
-        image={{ src: "", alt: "Chess icon" }}
-      />
-      <Card
-        title="Dot Files"
-        href="https://astro.build/themes/"
-        image={{ src: "", alt: "Dot files icon" }}
-      />
-      <Card
-        title="Artist network"
-        href="https://astro.build/chat/"
-        image={{ src: "", alt: "Artist network icon" }}
-      />
-      <Card
-        title="Artist network"
-        href="https://astro.build/chat/"
-        image={{ src: "", alt: "Artist network icon" }}
-      />
+      {
+        projects.map((project) => (
+          <Card
+            title={project.name}
+            href={project.projectLink || project.repoLink}
+            image={project.image}
+          />
+        ))
+      }
     </ul>
   </main>
 </Layout>

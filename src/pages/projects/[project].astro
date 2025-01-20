@@ -1,0 +1,12 @@
+---
+import type { GetStaticPaths } from "astro";
+import { projects } from "src/projects";
+
+export const getStaticPaths = (() =>
+  projects.map(({ id }) => ({
+    params: { project: id },
+  }))) satisfies GetStaticPaths;
+
+const { project } = Astro.params;
+console.log(project);
+---
