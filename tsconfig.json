@@ -17,6 +17,10 @@
       "@pages/*": [
         "src/pages/*"
       ]
-    }
+    },
+    "includes": [
+      "src/**/*.ts",
+      "src/**/*.astro"
+    ]
   }
 }
