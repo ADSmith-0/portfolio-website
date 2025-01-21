@@ -1,11 +1,11 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Page from "@layouts/Page.astro";
 import Card from "@components/Card.astro";
 import Typewriter from "@components/Typewriter.astro";
 import { projects } from "src/projects";
 ---
 
-<Layout title="Adam Smith">
+<Page title="Adam Smith">
   <main>
     <Typewriter>
       <h1>Hi, I'm Adam</h1>
@@ -22,7 +22,7 @@ import { projects } from "src/projects";
       }
     </ul>
   </main>
-</Layout>
+</Page>
 
 <style>
   main {
