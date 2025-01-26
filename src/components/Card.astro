@@ -18,25 +18,6 @@ const { title, href, image } = Astro.props;
   </a>
 </li>
 <style>
-  .link-card {
-    --width: 20rem;
-    list-style: none;
-    border-radius: var(--spacing-3);
-    min-width: var(--width);
-    height: calc(var(--width) / 2);
-    width: min-content;
-    background-color: hsl(var(--grey-900));
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-  .link-card:is(:hover, :focus-within) {
-    background-position: 0;
-    background-image: var(--accent-gradient);
-  }
-  .link-card:is(:hover, :focus-within) h2 {
-    color: rgb(var(--accent-light));
-  }
   a {
     text-decoration: none;
   }

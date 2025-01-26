@@ -1,59 +1,18 @@
 ---
 import Page from "@layouts/Page.astro";
-import Card from "@components/Card.astro";
 import Typewriter from "@components/Typewriter.astro";
-import { projects } from "src/projects";
 ---
 
 <Page title="Adam Smith">
-  <main>
-    <Typewriter>
-      <h1>Hi, I'm Adam</h1>
-    </Typewriter>
-    <ul role="list" class="link-card-grid">
-      {
-        projects.map((project) => (
-          <Card
-            title={project.name}
-            href={project.projectLink || project.repoLink}
-            image={project.image}
-          />
-        ))
-      }
-    </ul>
-  </main>
+  <Typewriter>
+    <h1>Hi, I'm Adam</h1>
+  </Typewriter>
 </Page>
 
 <style>
-  main {
-    margin: auto;
-    width: calc(100% - var(--spacing-4));
-    max-width: 1000px;
-    color: hsl(var(--white));
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
   h1 {
     font-size: var(--font-size-4xl);
-    font-weight: 700;
-    line-height: 1.2em;
     text-align: center;
     color: hsl(var(--white));
-  }
-  .link-card-grid {
-    display: grid;
-    gap: var(--spacing-4);
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    place-items: center;
-    padding: 0;
   }
 </style>

@@ -1,7 +1,21 @@
 ---
+import Card from "@components/Card.astro";
 import Page from "@layouts/Page.astro";
+import { projects } from "src/projects";
 ---
 
 <Page title="Adam Smith">
   <h1>Projects</h1>
+  <ul role="list" class="link-card-grid">
+    {
+      projects.map((project) => (
+        <Card
+          title={project.name}
+          href={project.projectLink || project.repoLink}
+          image={project.image}
+        />
+      ))
+    }
+  </ul>
+  <link rel="stylesheet" href="./card.css" />
 </Page>
