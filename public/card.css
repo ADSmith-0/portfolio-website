@@ -1,30 +1,26 @@
 .link-card-grid {
-  --max-width: 20rem;
+  --card-width: 20rem;
+  --cols: 3;
+
+  @media (max-width: 63rem) {
+    --cols: 2;
+  }
+
+  @media (max-width: 42rem) {
+    --cols: 1;
+  }
+
   display: grid;
-  gap: var(--spacing-4);
-  max-width: calc(4 * var(--max-width));
-  grid-template-columns: repeat(auto-fit, minmax(var(--max-width), 1fr));
-  align-items: center;
-  justify-items: stretch;
-  padding: 0;
-}
+  max-width: calc(4 * var(--card-width));
+  grid-template-columns: repeat(var(--cols), minmax(var(--card-width), 1fr));
 
-.link-card {
-  list-style: none;
-  border-radius: var(--spacing-3);
-  min-width: var(--max-width);
-  height: calc(var(--max-width) / 1.8);
-  background-color: hsl(var(--grey-900));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.link-card:is(:hover, :focus-within) {
-  background-position: 0;
-  background-image: var(--accent-gradient);
-}
-
-.link-card:is(:hover, :focus-within) h2 {
-  color: rgb(var(--accent-light));
+  .link-card {
+    list-style: none;
+    min-width: var(--card-width);
+    height: calc(var(--card-width) / 1.8);
+    background-color: hsl(var(--grey-900));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    box-sizing: border-box;
+  }
 }

@@ -1,15 +1,11 @@
 import type { Project } from "src/types";
 
-export const projects = [
+export const projects: Project[] = [
   {
     "id": "grately",
     "name": "Grately",
     "projectLink": "",
     "repoLink": "",
-    "image": {
-      "src": "",
-      "alt": ""
-    },
     "colour": "pink"
   },
   {
@@ -17,10 +13,6 @@ export const projects = [
     "name": "Chess",
     "projectLink": "",
     "repoLink": "",
-    "image": {
-      "src": "",
-      "alt": ""
-    },
     "colour": "pink"
   },
   {
@@ -28,10 +20,6 @@ export const projects = [
     "name": "Dot Files",
     "projectLink": "",
     "repoLink": "",
-    "image": {
-      "src": "",
-      "alt": ""
-    },
     "colour": "pink"
   },
   {
@@ -39,10 +27,6 @@ export const projects = [
     "name": "Artist Network",
     "projectLink": "",
     "repoLink": "",
-    "image": {
-      "src": "",
-      "alt": ""
-    },
     "colour": "pink"
   },
   {
@@ -50,10 +34,6 @@ export const projects = [
     "name": "JS Patterns",
     "projectLink": "",
     "repoLink": "",
-    "image": {
-      "src": "",
-      "alt": ""
-    },
     "colour": "pink"
   }
-] as Project[];
+] as const;

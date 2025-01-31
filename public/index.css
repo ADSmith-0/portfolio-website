@@ -82,6 +82,15 @@ a:visited {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.align-items-center {
   align-items: center;
 }
 
@@ -91,6 +100,50 @@ a:visited {
 
 .absolute {
   position: absolute;
+}
+
+.br-1 {
+  border-radius: var(--spacing-1);
+}
+
+.br-2 {
+  border-radius: var(--spacing-2);
+}
+
+.br-3 {
+  border-radius: var(--spacing-3);
+}
+
+.br-4 {
+  border-radius: var(--spacing-4);
+}
+
+.br-5 {
+  border-radius: var(--spacing-5);
+}
+
+.br-6 {
+  border-radius: var(--spacing-6);
+}
+
+.br-7 {
+  border-radius: var(--spacing-7);
+}
+
+.br-8 {
+  border-radius: var(--spacing-8);
+}
+
+.br-9 {
+  border-radius: var(--spacing-9);
+}
+
+.br-10 {
+  border-radius: var(--spacing-10);
+}
+
+.p-0 {
+  padding: 0;
 }
 
 .p-1 {

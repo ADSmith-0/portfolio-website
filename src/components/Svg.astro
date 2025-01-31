@@ -1,0 +1,18 @@
+---
+interface Props {
+  icon: string;
+  height?: string;
+  width?: string;
+}
+
+const { icon, ...attributes } = Astro.props;
+const { default: svg } = await import(`../assets/images/${icon}.svg?raw`);
+
+const attributesString = Object.entries(attributes)
+  .map(([key, value]) => `${key}="${value}"`)
+  .join(" ");
+
+const innerHTML: string = svg.replace(/^<svg/, `<svg ${attributesString}`);
+---
+
+<Fragment {...attributes} set:html={innerHTML} />

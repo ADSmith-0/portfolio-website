@@ -5,17 +5,21 @@ import { projects } from "src/projects";
 ---
 
 <Page title="Adam Smith">
-  <h1>Projects</h1>
-  <ul role="list" class="link-card-grid">
-    {
-      projects.map((project) => (
-        <Card
-          title={project.name}
-          href={project.projectLink || project.repoLink}
-          image={project.image}
-        />
-      ))
-    }
-  </ul>
+  <div class="flex-column-center mt-10">
+    <div class="container">
+      <h1>Projects</h1>
+      <ul role="list" class="link-card-grid align-items-center gap-4 p-0">
+        {
+          projects.map((project) => (
+            <Card
+              id={project.id}
+              title={project.name}
+              href={project.projectLink || project.repoLink}
+            />
+          ))
+        }
+      </ul>
+    </div>
+  </div>
   <link rel="stylesheet" href="./card.css" />
 </Page>
