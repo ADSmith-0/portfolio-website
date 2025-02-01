@@ -7,6 +7,10 @@
     width: 90%;
   }
 
+  @media (max-width: 40rem) {
+    width: 95%;
+  }
+
   .link-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
