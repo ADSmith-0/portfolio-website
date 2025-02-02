@@ -60,7 +60,7 @@ const links: [href: string, label: string][] = [
 </style>
 <script>
   const currentlySelectedOption = document.querySelector(
-    `nav > a[href='${window.location.pathname}']`,
+    `nav > a[href='/${window.location.pathname.split("/")[1]}']`,
   ) as HTMLElement;
 
   currentlySelectedOption.classList.add("selected");
