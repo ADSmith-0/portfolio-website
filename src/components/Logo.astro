@@ -1,0 +1,53 @@
+---
+import type { ProjectIds } from "src/types";
+
+interface Props {
+  projectId: ProjectIds;
+  size?: string;
+}
+
+type Filetypes = ".png" | ".jpg" | ".svg" | undefined;
+
+function getFiletype(projectId: ProjectIds): Filetypes {
+  switch (projectId) {
+    case "grately":
+      return ".png";
+    case "chess":
+    case "artist-network":
+    case "dot-files":
+    case "js-patterns":
+      return ".svg";
+    default:
+      return undefined;
+  }
+}
+
+const { projectId, size = 65 } = Astro.props;
+
+const filetype = getFiletype(projectId);
+const { default: image } = await import(
+  `../assets/images/${projectId}${filetype}${filetype === ".svg" ? "?raw" : ""}`
+);
+---
+
+{
+  image !== undefined && (
+    <Fragment>
+      {filetype === ".png" && (
+        <img src={image.src} height={size} width={size} class="br-2" />
+      )}
+      {filetype === ".svg" && (
+        <Fragment
+          set:html={image.replace(/^<svg/, `<svg height=${size} width=${size}`)}
+        />
+      )}
+    </Fragment>
+  )
+}
+{
+  image === undefined && (
+    <Fragment>
+      {projectId === "dot-files" && <i class="monitor-cog" />}
+    </Fragment>
+  )
+}

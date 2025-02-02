@@ -14,9 +14,6 @@ importers:
       astro:
         specifier: ^5.1.7
         version: 5.1.7(rollup@4.24.2)(typescript@5.6.3)(yaml@2.6.0)
-      lucide:
-        specifier: ^0.474.0
-        version: 0.474.0
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -1003,9 +1000,6 @@ packages:
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
-
-  lucide@0.474.0:
-    resolution: {integrity: sha512-2rfORNh9fzhCUKu0ciE48ogR1Zg7hleABLO5MBF06vOb4esTtE8FbfQJiC+wveiNFoeojWKz6zXheUToRR5uIg==}
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
@@ -2865,8 +2859,6 @@ snapshots:
   longest-streak@3.1.0: {}
 
   lru-cache@10.4.3: {}
-
-  lucide@0.474.0: {}
 
   magic-string@0.30.17:
     dependencies:

@@ -12,7 +12,7 @@ import { projects } from "src/projects";
         {
           projects.map((project) => (
             <Card
-              id={project.id}
+              projectId={project.id}
               title={project.name}
               href={project.projectLink || project.repoLink}
             />
