@@ -1,0 +1,20 @@
+---
+import Page from "@layouts/Page.astro";
+---
+
+<Page title="Adam Smith">
+  <h1>Page not found</h1>
+  <button role="link" class="fs-l" onclick="history.back()"
+    >Return to previous page</button
+  >
+</Page>
+
+<style>
+  button {
+    background-color: transparent;
+    color: hsl(var(--orange));
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
