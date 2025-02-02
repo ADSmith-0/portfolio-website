@@ -15,14 +15,17 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
 
-    .link-card {
+    li {
       list-style: none;
-      min-width: var(--card-width);
-      height: calc(var(--card-width) / 1.9);
-      background-color: hsl(var(--grey-900));
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-      box-sizing: border-box;
+
+      .link-card {
+        min-width: var(--card-width);
+        height: calc(var(--card-width) / 1.9);
+        background-color: hsl(var(--grey-900));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        box-sizing: border-box;
+      }
     }
   }
 }

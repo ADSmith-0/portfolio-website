@@ -5,14 +5,16 @@ import Logo from "@components/Logo.astro";
 interface Props {
   projectId: ProjectIds;
   title: string;
-  href: string;
 }
 
-const { projectId, title, href } = Astro.props;
+const { projectId, title } = Astro.props;
 ---
 
-<li class="link-card flex-row-center pl-10 pr-5 py-2 br-3">
-  <a href={href} class="flex-row-center gap-5">
+<li>
+  <a
+    href=`/projects/${projectId}`
+    class="link-card flex-row-center gap-5 pl-10 pr-5 py-2 br-3"
+  >
     <Logo projectId={projectId} />
     <h2 class="fs-xl m-0">{title}</h2>
   </a>

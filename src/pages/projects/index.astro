@@ -11,11 +11,7 @@ import { projects } from "src/projects";
       <ul role="list" class="link-card-grid align-items-center gap-4 p-0">
         {
           projects.map((project) => (
-            <Card
-              projectId={project.id}
-              title={project.name}
-              href={project.projectLink || project.repoLink}
-            />
+            <Card projectId={project.id} title={project.name} />
           ))
         }
       </ul>
