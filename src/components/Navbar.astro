@@ -6,16 +6,21 @@ const links: [href: string, label: string][] = [
 ];
 ---
 
-<nav class="flex-row-center relative ml-7 gap-7 no-transition">
-  {
-    links.map(([href, label]) => (
-      <a href={href} class="px-4 pt-4 mt-2 pb-3">
-        {label}
-      </a>
-    ))
-  }
-</nav>
+<div class="navbar-container pb-7 pt-5">
+  <nav class="flex-row-center relative ml-7 gap-7 no-transition">
+    {
+      links.map(([href, label]) => (
+        <a href={href} class="px-4 pt-4 mt-2 pb-3">
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+</div>
 <style>
+  .navbar-container {
+    border-bottom: 1px solid hsl(var(--grey-700));
+  }
   a {
     text-decoration: none;
     color: hsl(var(--white));
