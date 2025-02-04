@@ -68,6 +68,14 @@ a:visited {
   color: hsl(var(--white));
 }
 
+.border-box {
+  box-sizing: border-box;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;

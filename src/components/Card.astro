@@ -1,6 +1,7 @@
 ---
-import type { ProjectIds } from "src/types";
+import type { Project, ProjectIds } from "src/types";
 import Logo from "@components/Logo.astro";
+import { projects } from "src/projects";
 
 interface Props {
   projectId: ProjectIds;
@@ -8,19 +9,98 @@ interface Props {
 }
 
 const { projectId, title } = Astro.props;
+
+const project: Project = projects.find(({ id }) => id === projectId)!;
+
+const borderColour = project.colour;
+const containerOffset = "100px";
+const glowOffset = "1px";
+const borderRadius = "4px";
 ---
 
 <li>
   <a
+    id="container"
     href=`/projects/${projectId}`
-    class="link-card flex-row-center gap-5 pl-10 pr-5 py-2 br-3"
+    class="card flex-row-center pl-10 pr-5 br-3 border-box pointer animated-border glow-effect"
+    style={`--border-colour: ${borderColour}; --container-offset: ${containerOffset}; --glow-offset: ${glowOffset}; --border-radius: ${borderRadius};`}
   >
-    <Logo projectId={projectId} />
-    <h2 class="fs-xl m-0">{title}</h2>
+    <div class="flex-row-center gap-5">
+      <Logo projectId={projectId} />
+      <h2 class="fs-xl m-0">{title}</h2>
+    </div>
+    <svg id="glow-container">
+      <rect
+        id="glow-line"
+        pathLength="100"
+        x={`${parseInt(containerOffset) / 2 + parseInt(glowOffset) / -2}px`}
+        y={`${parseInt(containerOffset) / 2 + parseInt(glowOffset) / -2}px`}
+        stroke-linecap="round"
+        rx={borderRadius}></rect>
+      <rect
+        id="glow-blur"
+        pathLength="100"
+        x={`${parseInt(containerOffset) / 2 + parseInt(glowOffset) / -2}px`}
+        y={`${parseInt(containerOffset) / 2 + parseInt(glowOffset) / -2}px`}
+        stroke-linecap="round"
+        rx={borderRadius}></rect>
+    </svg>
   </a>
 </li>
 <style>
-  a {
-    text-decoration: none;
+  li {
+    list-style: none;
+    .card {
+      --glow-line-thickness: var(--spacing-1);
+      --glow-blur-size: var(--spacing-3);
+      --animation-speed: 2s;
+      /* do not change, used for calculations */
+      --container-offset: 100px;
+      position: relative;
+      border-radius: var(--border-radius);
+      border: var(--spacing-1) solid hsl(var(--grey-800));
+      transition: transform 0.2s linear;
+      text-decoration: none;
+      min-width: var(--card-width);
+      height: calc(var(--card-width) / 1.9);
+      background-color: hsl(var(--grey-900));
+
+      &:is(:hover, :focus) {
+        transform: scale(1.03);
+      }
+    }
+  }
+  #glow-container {
+    pointer-events: none;
+    position: absolute;
+    inset: calc(var(--container-offset) / -2);
+    width: calc(100% + var(--container-offset));
+    height: calc(100% + var(--container-offset));
+  }
+  #glow-line,
+  #glow-blur {
+    width: calc(100% - var(--container-offset) + var(--glow-offset));
+    height: calc(100% - var(--container-offset) + var(--glow-offset));
+    opacity: 0;
+    fill: transparent;
+    stroke: var(--border-colour);
+    stroke-width: var(--glow-line-thickness);
+    stroke-dasharray: 20px 30px;
+    transition: all 0.1s linear;
+  }
+  #glow-blur {
+    filter: blur(var(--glow-blur-size));
+  }
+  .card:is(:hover, :focus) :is(#glow-line, #glow-blur) {
+    opacity: 1;
+    animation: spin var(--animation-speed) linear infinite;
+  }
+  @keyframes spin {
+    0% {
+      stroke-dashoffset: 0px;
+    }
+    100% {
+      stroke-dashoffset: -50px;
+    }
   }
 </style>
