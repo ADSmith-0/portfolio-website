@@ -6,34 +6,34 @@ export const projects: Project[] = [
     "name": "Grately",
     "projectLink": "",
     "repoLink": "",
-    "colour": "pink"
+    "colour": "#ea54a4"
   },
   {
     "id": "chess",
     "name": "Chess",
     "projectLink": "",
     "repoLink": "",
-    "colour": "pink"
+    "colour": "#0cf"
   },
   {
     "id": "dot-files",
     "name": "Dot Files",
     "projectLink": "",
     "repoLink": "",
-    "colour": "pink"
+    "colour": "#ffffff"
   },
   {
     "id": "artist-network",
     "name": "Artist Network",
     "projectLink": "",
     "repoLink": "",
-    "colour": "pink"
+    "colour": "#ffffff"
   },
   {
     "id": "js-patterns",
     "name": "JS Patterns",
     "projectLink": "",
     "repoLink": "",
-    "colour": "pink"
+    "colour": "#f0db4f"
   }
 ] as const;
