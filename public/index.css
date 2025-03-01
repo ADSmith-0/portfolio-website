@@ -68,6 +68,18 @@ a:visited {
   color: hsl(var(--white));
 }
 
+.fixed {
+  width: 70rem;
+
+  @media (max-width: 80rem) {
+    width: 90%;
+  }
+
+  @media (max-width: 54rem) {
+    width: 95%;
+  }
+}
+
 .border-box {
   box-sizing: border-box;
 }
