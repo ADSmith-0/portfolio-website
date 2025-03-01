@@ -21,7 +21,7 @@ const borderRadius = "4px";
 <li>
   <a
     href=`/projects/${projectId}`
-    class="card flex-row-center pl-10 pr-5 br-3 border-box pointer animated-border glow-effect"
+    class="card flex-row-center justify-center p-5 br-3 border-box pointer animated-border glow-effect"
     style={`--border-colour: ${borderColour}; --container-offset: ${containerOffset}; --glow-offset: ${glowOffset}; --border-radius: ${borderRadius};`}
   >
     <div class="flex-row-center gap-5">
@@ -51,17 +51,17 @@ const borderRadius = "4px";
     list-style: none;
     .card {
       --glow-line-thickness: var(--spacing-1);
-      --glow-blur-size: var(--spacing-3);
+      --glow-blur-size: var(--spacing-4);
       --animation-speed: 3s;
       /* do not change, used for calculations */
       --container-offset: 100px;
       position: relative;
       border-radius: var(--border-radius);
       border: var(--spacing-1) solid hsl(var(--grey-800));
-      transition: transform 0.2s linear;
+      transition: transform 0.15s linear;
       text-decoration: none;
       min-width: var(--card-width);
-      height: calc(var(--card-width) / 1.9);
+      height: calc(var(--card-width) / 1.6);
       background-color: hsl(var(--grey-900));
     }
   }
@@ -80,7 +80,7 @@ const borderRadius = "4px";
     fill: transparent;
     stroke: var(--border-colour);
     stroke-width: var(--glow-line-thickness);
-    stroke-dasharray: 20px 30px;
+    stroke-dasharray: 100px;
     transition: all 0.1s linear;
   }
   #glow-blur {
@@ -88,14 +88,5 @@ const borderRadius = "4px";
   }
   .card:is(:hover, :focus) :is(#glow-line, #glow-blur) {
     opacity: 1;
-    animation: spin var(--animation-speed) linear infinite;
-  }
-  @keyframes spin {
-    0% {
-      stroke-dashoffset: 0px;
-    }
-    100% {
-      stroke-dashoffset: -50px;
-    }
   }
 </style>
