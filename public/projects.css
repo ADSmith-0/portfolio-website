@@ -1,15 +1,6 @@
 .container {
-  --card-width: 20rem;
-  width: 70rem;
+  --card-width: 17.5rem;
   min-width: var(--card-width);
-
-  @media (max-width: 80rem) {
-    width: 90%;
-  }
-
-  @media (max-width: 40rem) {
-    width: 95%;
-  }
 
   .link-card-grid {
     display: grid;
