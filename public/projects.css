@@ -1,9 +1,0 @@
-.container {
-  --card-width: 17.5rem;
-  min-width: var(--card-width);
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
-  }
-}
