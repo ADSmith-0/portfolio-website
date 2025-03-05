@@ -11,25 +11,22 @@ interface Props {
 const { projectId, title } = Astro.props;
 
 const project: Project = projects.find(({ id }) => id === projectId)!;
-
-const borderColour = project.colour;
 ---
 
 <li>
   <a
     href=`/projects/${projectId}`
-    class="card flex-row-center justify-center p-5 br-3 border-box pointer animated-border glow-effect"
-    style={`--border-colour: ${borderColour};`}
+    class="card flex-column p-7 br-3 border-box pointer animated-border glow-effect"
+    style={`--border-colour: ${project.colour};`}
   >
-    <div class="flex-row-center gap-5">
-      <Logo projectId={projectId} size="55" />
-      <h2 class="fs-2xl m-0">{title}</h2>
-    </div>
+    <Logo projectId={projectId} size="55" />
+    <h2 class="fs-2xl pt-5">{title}</h2>
   </a>
 </li>
 <style>
   li {
     list-style: none;
+
     .card {
       position: relative;
       border: var(--spacing-1) solid hsl(var(--grey-800));
