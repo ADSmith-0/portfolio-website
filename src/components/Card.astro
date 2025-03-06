@@ -16,7 +16,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
 <li>
   <a
     href=`/projects/${projectId}`
-    class="card flex-column p-7 br-3 border-box pointer animated-border glow-effect"
+    class="card flex-column p-7 br-3 h-100 border-box pointer"
     style={`--border-colour: ${project.colour};`}
   >
     <Logo projectId={projectId} size="55" />
@@ -28,21 +28,19 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     list-style: none;
 
     .card {
-      position: relative;
       border: var(--spacing-1) solid hsl(var(--grey-800));
       transition: border-color 0.1s ease-in-out;
       text-decoration: none;
       min-width: var(--card-width);
-      height: calc(var(--card-width) / 1.6);
       background-color: hsl(var(--grey-900));
 
-      --blur: var(--spacing-3);
+      --_blur: var(--spacing-3);
 
       &:is(:hover, :focus) {
         border-color: var(--border-colour);
         box-shadow:
-          0 0 var(--blur) var(--border-colour),
-          inset 0 0 var(--blur) var(--border-colour);
+          0 0 var(--_blur) var(--border-colour),
+          inset 0 0 var(--_blur) var(--border-colour);
       }
     }
   }

@@ -17,12 +17,13 @@ import { projects } from "src/projects";
   </div>
   <style>
     .container {
-      --card-width: 17.5rem;
+      --card-width: 15rem;
       min-width: var(--card-width);
 
       .link-card-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
+        align-items: stretch;
       }
     }
   </style>
