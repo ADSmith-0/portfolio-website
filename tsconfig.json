@@ -19,6 +19,7 @@
       ]
     },
     "includes": [
+      "*.ts",
       "src/**/*.ts",
       "src/**/*.astro"
     ]

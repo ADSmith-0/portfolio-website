@@ -2,6 +2,7 @@
 import type { Project, ProjectIds } from "src/types";
 import Logo from "@components/Logo.astro";
 import { projects } from "src/projects";
+import { technologyFromId } from "src/technologies";
 
 interface Props {
   projectId: ProjectIds;
@@ -13,22 +14,42 @@ const { projectId, title } = Astro.props;
 const project: Project = projects.find(({ id }) => id === projectId)!;
 ---
 
-<li>
-  <a
-    href=`/projects/${projectId}`
-    class="card flex-column p-7 br-3 h-100 border-box pointer"
-    style={`--border-colour: ${project.colour};`}
-  >
-    <Logo projectId={projectId} size="55" />
-    <h2 class="fs-2xl pt-5">{title}</h2>
-  </a>
+<li
+  class="card flex-column p-7 br-3 h-100 border-box"
+  style={`--border-colour: ${project.colour};`}
+>
+  <Logo id={projectId} size={55} />
+  <h2 class="fs-2xl pt-5">{title}</h2>
+  <div class="flex-row-center flex-wrap gap-2">
+    {
+      project.technologies.map((tagId) => {
+        const tag = technologyFromId[tagId];
+        return (
+          <div class="pr-3 py-1">
+            <a
+              target="_blank"
+              class="block m-0"
+              href={tag.link}
+              title={tag.name}
+            >
+              <Logo id={tagId} size={30} />
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+  <p class="text-secondary">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod in eum
+  </p>
+  <a href=`/projects/${projectId}`>Read More</a>
 </li>
 <style>
   li {
     list-style: none;
 
-    .card {
-      border: var(--spacing-1) solid hsl(var(--grey-800));
+    &.card {
+      border: var(--spacing-2) solid hsl(var(--grey-800));
       transition: border-color 0.1s ease-in-out;
       text-decoration: none;
       min-width: var(--card-width);
@@ -36,7 +57,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
 
       --_blur: var(--spacing-3);
 
-      &:is(:hover, :focus) {
+      &:is(:hover, :focus-within) {
         border-color: var(--border-colour);
         box-shadow:
           0 0 var(--_blur) var(--border-colour),

@@ -34,7 +34,7 @@
   --spacing-9: 2.5rem;
   --spacing-10: 3rem;
 
-  --font-size-s: 0.75rem;
+  --font-size-s: 0.875rem;
   --font-size-m: 1rem;
   --font-size-l: 1.25rem;
   --font-size-xl: 1.5rem;
@@ -87,6 +87,10 @@ a:visited {
 
 .pointer {
   cursor: pointer;
+}
+
+.block {
+  display: block;
 }
 
 .flex-row {
@@ -145,6 +149,18 @@ a:visited {
 
 .fs-4xl {
   font-size: var(--font-size-4xl);
+}
+
+.text-primary {
+  color: hsl(var(--grey-100));
+}
+
+.text-secondary {
+  color: hsl(var(--grey-300));
+}
+
+.text-tertiary {
+  color: hsl(var(--grey-500));
 }
 
 .relative {

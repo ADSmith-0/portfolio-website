@@ -1,53 +1,13 @@
 ---
-import type { ProjectIds } from "src/types";
+import type { ProjectIds, TechnologyIds } from "src/types";
+import Svg from "@components/Svg.astro";
 
 interface Props {
-  projectId: ProjectIds;
-  size?: string;
+  id: ProjectIds | TechnologyIds;
+  size?: number;
 }
 
-type Filetypes = ".png" | ".jpg" | ".svg" | undefined;
-
-function getFiletype(projectId: ProjectIds): Filetypes {
-  switch (projectId) {
-    case "grately":
-      return ".png";
-    case "chess":
-    case "artist-network":
-    case "dot-files":
-    case "js-patterns":
-      return ".svg";
-    default:
-      return undefined;
-  }
-}
-
-const { projectId, size = 65 } = Astro.props;
-
-const filetype = getFiletype(projectId);
-const { default: image } = await import(
-  `../assets/images/${projectId}${filetype}${filetype === ".svg" ? "?raw" : ""}`
-);
+const { id, size } = Astro.props;
 ---
 
-{
-  image !== undefined && (
-    <Fragment>
-      {filetype === ".png" && (
-        <img src={image.src} height={size} width={size} class="br-3" />
-      )}
-      {filetype === ".svg" && (
-        <Fragment
-          set:html={image.replace(/^<svg/, `<svg height=${size} width=${size}`)}
-        />
-      )}
-    </Fragment>
-  )
-}
-{
-  image === undefined && (
-    <Fragment>
-      {projectId === "dot-files" && <i class="monitor-cog" />}
-    </Fragment>
-  )
-}
+<Svg id={id === "react-native" ? "react" : id} size={size} />

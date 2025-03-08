@@ -1,0 +1,27 @@
+---
+interface Props {
+  id: string;
+  size?: number;
+}
+
+const { id, size = 65 } = Astro.props;
+
+async function getImage(id: Props["id"]): Promise<string | undefined> {
+  try {
+    const { default: image } = await import(`../assets/images/${id}.svg?raw`);
+    return image;
+  } catch {
+    return undefined;
+  }
+}
+
+const image = await getImage(id);
+---
+
+{
+  image !== undefined && (
+    <Fragment
+      set:html={image.replace(/^<svg/, `<svg height=${size} width=${size}`)}
+    />
+  )
+}
