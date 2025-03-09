@@ -4,7 +4,12 @@ export type ProjectIds =
   | "dot-files"
   | "artist-network"
   | "js-patterns"
-  | "advent-of-code-go-2021";
+  | "advent-of-code-go-2021"
+  | "typescript-server"
+  | "c-programming-language"
+  | "portfolio-website"
+  | "my-website"
+  | "traversy-js-challenges";
 
 export type TechnologyIds =
   | "javascript"
@@ -16,13 +21,15 @@ export type TechnologyIds =
   | "react-native"
   | "svelte"
   | "astro"
-  | "linux";
+  | "linux"
+  | "c";
 
 export type Project = {
   id: ProjectIds;
   name: string;
+  description: string;
   technologies: TechnologyIds[];
-  projectLink: string;
-  repoLink: string;
+  link: string;
+  repo: string;
   colour: string;
 };

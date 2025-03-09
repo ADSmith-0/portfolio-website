@@ -17,4 +17,5 @@ export const technologyFromId: Record<TechnologyIds, { name: string; link: strin
   },
   oauth: { name: "OAuth", link: "https://en.wikipedia.org/wiki/OAuth" },
   linux: { name: "Linux", link: "https://en.wikipedia.org/wiki/Linux" },
+  c: { name: "C Programming Language", link: "https://en.wikipedia.org/wiki/C_(programming_language)" }
 };
