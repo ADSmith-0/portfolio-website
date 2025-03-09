@@ -21,7 +21,9 @@ export type TechnologyIds =
   | "react-native"
   | "svelte"
   | "astro"
-  | "linux"
+  | "neovim"
+  | "tmux"
+  | "alacritty"
   | "c";
 
 export type Project = {

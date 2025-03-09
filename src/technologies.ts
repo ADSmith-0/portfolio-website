@@ -1,6 +1,9 @@
 import type { TechnologyIds } from "./types";
 
-export const technologyFromId: Record<TechnologyIds, { name: string; link: string }> = {
+export const technologyFromId: Record<
+  TechnologyIds,
+  { name: string; link: string }
+> = {
   go: { name: "Go", link: "https://go.dev/" },
   astro: { name: "Astro", link: "https://astro.build/" },
   react: { name: "React", link: "https://react.dev/" },
@@ -16,6 +19,11 @@ export const technologyFromId: Record<TechnologyIds, { name: string; link: strin
     link: "https://developer.mozilla.org/en-US/docs/Web/API/Web_components",
   },
   oauth: { name: "OAuth", link: "https://en.wikipedia.org/wiki/OAuth" },
-  linux: { name: "Linux", link: "https://en.wikipedia.org/wiki/Linux" },
-  c: { name: "C Programming Language", link: "https://en.wikipedia.org/wiki/C_(programming_language)" }
+  neovim: { name: "Neovim", link: "https://neovim.io/" },
+  tmux: { name: "Tmux", link: "https://github.com/tmux/tmux/wiki" },
+  alacritty: { name: "Alacritty", link: "https://alacritty.org/" },
+  c: {
+    name: "C Programming Language",
+    link: "https://en.wikipedia.org/wiki/C_(programming_language)",
+  },
 };

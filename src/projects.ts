@@ -26,7 +26,7 @@ export const projects: Project[] = [
     name: "Dot Files",
     description:
       "Configuration files for my development setup. Includes configurations for Neovim, Tmux, Alacritty, Git, as well as various scripts I've written that I've found helpful with development.",
-    technologies: ["linux"],
+    technologies: ["neovim", "tmux", "alacritty"],
     link: "",
     repo: "",
     colour: "#ffffff",

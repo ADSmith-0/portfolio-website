@@ -1,0 +1,15 @@
+<svg version="1.1" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+ <title>Tmux</title>
+ <desc>Created with Sketch.</desc>
+ <g fill="none" fill-rule="evenodd">
+  <g id="vlpa">
+   <g id="vlpb">
+    <g id="vlpc" fill="#1BB91F">
+     <path d="m0 116h160v29c0 8.286-6.722 15-15 15h-130c-8.283 0-15-6.707-15-15v-29zm0 0h160v30h-160v-30z"/>
+    </g>
+    <path id="vlpd" d="m83 70v-70h-6v146h6v-70h77v-6h-77zm-83-54.99c0-8.288 6.722-15.01 15-15.01h130c8.283 0 15 6.725 15 15.01v131h-160v-131z" fill="#3C3C3C"/>
+   </g>
+  </g>
+ </g>
+</svg>

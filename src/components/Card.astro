@@ -18,10 +18,20 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
   class="card flex-column p-7 br-3 h-100 border-box"
   style={`--border-colour: ${project.colour};`}
 >
-  <Logo
-    id={project.technologies.length > 1 ? projectId : project.technologies[0]}
-    size={55}
-  />
+  {
+    project.technologies.length > 1 ? (
+      <Logo id={projectId} size={55} />
+    ) : (
+      <a
+        target="_blank"
+        class="block m-0"
+        href={technologyFromId[project.technologies[0]].link}
+        title={technologyFromId[project.technologies[0]].name}
+      >
+        <Logo id={project.technologies[0]} size={55} />
+      </a>
+    )
+  }
   <h2 class="fs-2xl pt-5">{title}</h2>
   {
     project.technologies.length > 1 && (
