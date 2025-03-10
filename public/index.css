@@ -123,6 +123,10 @@ a:visited {
   align-items: center;
 }
 
+.align-items-start {
+  align-items: start;
+}
+
 .fs-s {
   font-size: var(--font-size-s);
 }
