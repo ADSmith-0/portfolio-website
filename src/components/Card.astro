@@ -54,7 +54,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       </div>
     )
   }
-  <p class="text-secondary" set:html={project.description} />
+  <p class="overflow text-secondary" set:html={project.description} />
   <a href=`/projects/${projectId}`>Read More</a>
 </li>
 <style>
@@ -76,6 +76,21 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         box-shadow:
           0 0 var(--_blur) var(--border-colour),
           inset 0 0 var(--_blur) var(--border-colour);
+      }
+
+      & .overflow {
+        --_line-height: 1.5em;
+        --_number_of_lines: 4;
+        --_height: calc(var(--_number_of_lines) * var(--_line-height));
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: var(--_number_of_lines);
+        -webkit-box-orient: vertical;
+        line-height: var(--_line-height);
+        flex: 0 1 var(--_height);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: var(--_height);
       }
     }
   }
