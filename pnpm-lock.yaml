@@ -36,9 +36,6 @@ importers:
       prettier-plugin-astro:
         specifier: ^0.14.1
         version: 0.14.1
-      vite:
-        specifier: ^6.2.2
-        version: 6.2.2(@types/node@22.13.1)(yaml@2.6.0)
 
 packages:
 
