@@ -3,6 +3,7 @@ import type { Project, ProjectIds } from "src/types";
 import Logo from "@components/Logo.astro";
 import { projects } from "src/projects";
 import { technologyFromId } from "src/technologies";
+import Svg from "./Svg.astro";
 
 interface Props {
   projectId: ProjectIds;
@@ -18,20 +19,31 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
   class="card flex-column align-items-start p-7 br-3 h-100 border-box"
   style={`--border-colour: ${project.colour};`}
 >
-  {
-    project.technologies.length > 1 ? (
-      <Logo id={projectId} size={55} />
-    ) : (
-      <a
-        target="_blank"
-        class="block m-0"
-        href={technologyFromId[project.technologies[0]].link}
-        title={technologyFromId[project.technologies[0]].name}
-      >
-        <Logo id={project.technologies[0]} size={55} />
-      </a>
-    )
-  }
+  <div class="flex-row-center justify-between self-stretch">
+    {
+      project.technologies.length > 1 ? (
+        <Logo id={projectId} size={55} />
+      ) : (
+        <a
+          target="_blank"
+          class="block m-0"
+          href={technologyFromId[project.technologies[0]].link}
+          title={technologyFromId[project.technologies[0]].name}
+        >
+          <Logo id={project.technologies[0]} size={55} />
+        </a>
+      )
+    }
+    <a
+      href=`/projects/${projectId}`
+      class="project-link flex-row-center gap-2 px-4 py-3 br-2"
+    >
+      <span class="details-icon flex-row-center">
+        <Svg id="outlink" size={20} />
+      </span>
+      <span class="details-text pt-2">View Details</span>
+    </a>
+  </div>
   <h2 class="fs-2xl pt-5">{title}</h2>
   {
     project.technologies.length > 1 && (
@@ -55,7 +67,6 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     )
   }
   <p class="overflow text-secondary" set:html={project.description} />
-  <a href=`/projects/${projectId}`>Read More</a>
 </li>
 <style>
   li {
@@ -91,6 +102,37 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         overflow: hidden;
         text-overflow: ellipsis;
         max-height: var(--_height);
+      }
+
+      & .project-link {
+        text-decoration: none;
+        background-color: hsl(var(--grey-800) / 0.5);
+        overflow-x: clip;
+        interpolate-size: allow-keywords;
+        white-space: nowrap;
+        width: var(--spacing-6);
+        transition: all 0.4s ease-in-out;
+
+        & .details-icon {
+          flex-grow: 1;
+          flex-shrink: 0;
+          flex-basis: var(--spacing-3);
+        }
+
+        & .details-text {
+          visibility: hidden;
+        }
+
+        &:is(:hover, :focus-visible) {
+          background-color: hsl(var(--grey-100));
+          border-color: hsl(var(--grey-100));
+          color: hsl(var(--grey-900));
+          width: max-content;
+
+          & .details-text {
+            visibility: visible;
+          }
+        }
       }
     }
   }

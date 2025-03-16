@@ -119,12 +119,20 @@ a:visited {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .align-items-center {
   align-items: center;
 }
 
 .align-items-start {
   align-items: start;
+}
+
+.self-stretch {
+  align-self: stretch;
 }
 
 .fs-s {
