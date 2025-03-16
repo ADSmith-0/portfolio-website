@@ -1,4 +1,9 @@
 import * as THREE from "three";
+import {
+  Line2,
+  LineGeometry,
+  LineMaterial,
+} from "three/examples/jsm/Addons.js";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -17,44 +22,37 @@ function init() {
 
   const container = document.getElementById("three-container");
   container?.appendChild(renderer.domElement);
+
+  scene.background = new THREE.Color("#141415");
 }
 
 function main() {
-  const material = new THREE.LineBasicMaterial({
-    color: 0xeeeeee,
-    linewidth: 1000,
-  });
-
-  generateGrid(20, material);
-
-  scene.fog = new THREE.Fog(0xff0000, 10, 1000);
-
-  function animate() {
-    renderer.render(scene, camera);
-  }
-
+  generateGrid(20);
   renderer.setAnimationLoop(animate);
 }
 
-function generateGrid(size: number, material: THREE.LineBasicMaterial) {
-  for (let i = -size; i <= size; i++) {
-    const points = [
-      new THREE.Vector3(-size, 0, i),
-      new THREE.Vector3(size, 0, i),
-    ];
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    const line = new THREE.Line(geometry, material);
-    scene.add(line);
-  }
+function animate() {
+  renderer.render(scene, camera);
+}
+
+function generateGrid(size: number) {
+  const material = new LineMaterial({
+    color: 0xeeeeee,
+    linewidth: 1.5,
+  });
 
   for (let i = -size; i <= size; i++) {
-    const points = [
-      new THREE.Vector3(i, 0, -size),
-      new THREE.Vector3(i, 0, size),
-    ];
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    const line = new THREE.Line(geometry, material);
-    scene.add(line);
+    const xpoints = new Float32Array([i, 0, -size, i, 0, size]);
+    const xgeometry = new LineGeometry();
+    xgeometry.setPositions(xpoints);
+    const xline = new Line2(xgeometry, material);
+    scene.add(xline);
+
+    const zpoints = new Float32Array([-size, 0, i, size, 0, i]);
+    const zgeometry = new LineGeometry();
+    zgeometry.setPositions(zpoints);
+    const zline = new Line2(zgeometry, material);
+    scene.add(zline);
   }
 }
 
