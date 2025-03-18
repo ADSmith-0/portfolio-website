@@ -1,0 +1,6 @@
+- [ ] Finish cards
+- [ ] Attribute all images
+- [ ] Make navbar responsive
+- [ ] Finish Three.js landing screen animation
+- [ ] Do About Page
+- [ ] Link to CV
