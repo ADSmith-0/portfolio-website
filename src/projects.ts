@@ -75,7 +75,7 @@ export const projects: Project[] = [
     id: "my-website",
     name: "My Website",
     description:
-      'a http server that i wrote from scratch using typescript. this was made with <a target="_blank" href="https://app.codecrafters.io/catalog">codecrafters</a>.',
+      "My portfolio website for showing off my projects. This is the website that you are currently using",
     technologies: ["astro"],
     link: "",
     repo: "https://github.com/adsmith-0/my-website",
