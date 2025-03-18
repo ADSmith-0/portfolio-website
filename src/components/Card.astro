@@ -19,7 +19,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
   class="card flex-column align-items-start p-6 br-3 h-100 border-box"
   style={`--border-colour: ${project.colour};`}
 >
-  <div class="flex-row-center justify-between self-stretch">
+  <div class="flex-row-center justify-between self-stretch align-items-start">
     {
       project.technologies.length > 1 ? (
         <Logo id={projectId} size={55} />
@@ -107,6 +107,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       & .project-link {
         text-decoration: none;
         background-color: hsl(var(--grey-800) / 0.5);
+        border: var(--spacing-1) solid transparent;
         overflow-x: clip;
         interpolate-size: allow-keywords;
         white-space: nowrap;
@@ -124,9 +125,8 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         }
 
         &:is(:hover, :focus-visible) {
-          background-color: hsl(var(--grey-100));
-          border-color: hsl(var(--grey-100));
-          color: hsl(var(--grey-900));
+          border-color: hsl(var(--grey-500));
+          background-color: hsl(var(--grey-800) / 0.9);
           width: max-content;
 
           & .details-text {
