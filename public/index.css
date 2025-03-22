@@ -45,7 +45,7 @@
 }
 
 html {
-  font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+  font-family: "Inter", Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
     Arial, sans-serif;
   background: hsl(var(--grey-950));
 }
