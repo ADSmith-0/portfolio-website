@@ -15,7 +15,7 @@ export const projects: Project[] = [
     id: "chess",
     name: "Chess",
     description:
-      "Chess made with vanilla HTML, CSS and JavaScript. Fully functional, including en passant, castling and check.",
+      "Chess made with vanilla HTML, CSS and JavaScript. Mostly complete with: en passant, castling, check and checkmate.",
     technologies: ["web-components-api", "javascript"],
     link: "https://vanilla-js-chess-v1.netlify.app/",
     repo: "https://github.com/ADSmith-0/vanilla-js-chess",
