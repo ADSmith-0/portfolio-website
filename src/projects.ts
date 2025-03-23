@@ -17,7 +17,7 @@ export const projects: Project[] = [
     description:
       "Chess made with vanilla HTML, CSS and JavaScript. Fully functional, including en passant, castling and check.",
     technologies: ["web-components-api", "javascript"],
-    link: "",
+    link: "https://vanilla-js-chess-v1.netlify.app/",
     repo: "https://github.com/ADSmith-0/vanilla-js-chess",
     colour: "#0cf",
   },
@@ -28,7 +28,7 @@ export const projects: Project[] = [
       "Configuration files for my development setup. Includes configurations for Neovim, Tmux, Alacritty, Git, as well as various scripts I've written that I've found helpful with development.",
     technologies: ["neovim", "tmux", "alacritty"],
     link: "",
-    repo: "",
+    repo: "https://github.com/ADSmith-0/dot-files",
     colour: "#ffffff",
   },
   {
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     description:
       "My portfolio website for showing off my projects. This is the website that you are currently using",
     technologies: ["astro"],
-    link: "",
+    link: "https://adsmith-0-dev.netlify.app/",
     repo: "https://github.com/adsmith-0/my-website",
     colour: "#ff5d01",
   },
