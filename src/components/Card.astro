@@ -25,10 +25,11 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         <Logo id={projectId} size={55} />
       ) : (
         <a
-          target="_blank"
           class="block m-0"
           href={technologyFromId[project.technologies[0]].link}
           title={technologyFromId[project.technologies[0]].name}
+          target="_blank"
+          rel="noreferrer"
         >
           <Logo id={project.technologies[0]} size={55} />
         </a>
@@ -37,6 +38,8 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     <a
       href=`/projects/${projectId}`
       class="details-link flex-row-center px-4 py-3 gap-1 br-2"
+      target="_blank"
+      rel="noreferrer"
     >
       <span class="details-text semibold pl-3">Details</span>
       <span class="details-icon flex-row-center">
