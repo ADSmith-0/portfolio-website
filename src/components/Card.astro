@@ -36,12 +36,12 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     }
     <a
       href=`/projects/${projectId}`
-      class="project-link flex-row-center gap-2 px-4 py-3 br-2"
+      class="details-link flex-row-center px-4 py-3 gap-2 br-2"
     >
+      <span class="details-text pt-2 semibold pl-3">Details</span>
       <span class="details-icon flex-row-center">
-        <Svg id="outlink" size={22} />
+        <Svg id="chevron-right" size={22} />
       </span>
-      <span class="details-text pt-2">View Details</span>
     </a>
   </div>
   <h2 class="fs-2xl pt-5">{title}</h2>
@@ -126,30 +126,28 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         max-height: var(--_height);
       }
 
-      & .project-link {
-        text-decoration: none;
+      & .details-link {
+        /* Styling */
+        justify-content: flex-end;
         background-color: hsl(var(--grey-800) / 0.5);
-        border: var(--spacing-1) solid transparent;
+
+        /* Animation */
+        text-decoration: none;
+        width: var(--spacing-6);
         overflow-x: clip;
         interpolate-size: allow-keywords;
         white-space: nowrap;
-        width: var(--spacing-6);
-        transition: all 0.4s ease-in-out;
-
-        & .details-icon {
-          flex-grow: 1;
-          flex-shrink: 0;
-          flex-basis: var(--spacing-3);
-        }
+        transition: all 400ms ease-in-out;
 
         & .details-text {
+          margin-bottom: calc(-1 * var(--spacing-1));
           visibility: hidden;
         }
 
         &:is(:hover, :focus-visible) {
-          border-color: hsl(var(--grey-500));
-          background-color: hsl(var(--grey-800) / 0.9);
-          width: max-content;
+          /* border-color: hsl(var(--grey-800)); */
+          background-color: hsl(var(--grey-800));
+          width: fit-content;
 
           & .details-text {
             visibility: visible;

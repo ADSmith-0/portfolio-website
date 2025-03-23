@@ -167,6 +167,14 @@ a:visited {
   font-size: var(--font-size-4xl);
 }
 
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
 .text-primary {
   color: hsl(var(--grey-100));
 }
