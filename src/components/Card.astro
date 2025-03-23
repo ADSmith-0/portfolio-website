@@ -67,6 +67,28 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     )
   }
   <p class="overflow text-secondary" set:html={project.description} />
+  <div class="flex-row-center gap-3 w-100">
+    <span class={project.repo === "" ? "cursor-blocked" : ""}>
+      <a
+        href={project.repo}
+        class="btn"
+        aria-disabled={project.repo === ""}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Svg id="github" size={20} />
+        <span>Repo</span>
+      </a>
+    </span>
+    {
+      project.link !== "" && (
+        <a href={project.link} class="btn">
+          <Svg id="outlink" size={20} />
+          <span>Open</span>
+        </a>
+      )
+    }
+  </div>
 </li>
 <style>
   li {
@@ -132,6 +154,39 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
           & .details-text {
             visibility: visible;
           }
+        }
+      }
+
+      & .btn {
+        --_bg-color: hsl(var(--grey-900) / 0.5);
+        display: flex;
+        align-items: center;
+        border-radius: var(--spacing-2);
+        border: var(--spacing-1) solid hsl(var(--grey-800));
+        text-decoration: none;
+        padding: var(--spacing-3) var(--spacing-4);
+        gap: var(--spacing-2);
+        background-color: var(--_bg-color);
+        transition: background-color 50ms linear;
+
+        &:is(:hover, :focus-visible) {
+          background-color: hsl(var(--grey-800));
+        }
+
+        &[aria-disabled="true"] {
+          pointer-events: none;
+          --_stripe-color: hsl(var(--grey-800) / 0.5);
+          background-image: repeating-linear-gradient(
+            135deg,
+            var(--_bg-color),
+            var(--_bg-color) var(--spacing-3),
+            var(--_stripe-color) var(--spacing-3),
+            var(--_stripe-color) var(--spacing-4)
+          );
+        }
+
+        & span {
+          margin-top: var(--spacing-2);
         }
       }
     }
