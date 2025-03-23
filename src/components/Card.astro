@@ -38,7 +38,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       href=`/projects/${projectId}`
       class="details-link flex-row-center px-4 py-3 gap-2 br-2"
     >
-      <span class="details-text pt-2 semibold pl-3">Details</span>
+      <span class="details-text semibold pl-3">Details</span>
       <span class="details-icon flex-row-center">
         <Svg id="chevron-right" size={22} />
       </span>
@@ -77,14 +77,14 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         rel="noreferrer"
       >
         <Svg id="github" size={20} />
-        <span>Repo</span>
+        Repo
       </a>
     </span>
     {
       project.link !== "" && (
         <a href={project.link} class="btn">
           <Svg id="outlink" size={20} />
-          <span>Open</span>
+          Open
         </a>
       )
     }
@@ -140,7 +140,6 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         transition: all 400ms ease-in-out;
 
         & .details-text {
-          margin-bottom: calc(-1 * var(--spacing-1));
           visibility: hidden;
         }
 
@@ -181,10 +180,6 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
             var(--_stripe-color) var(--spacing-3),
             var(--_stripe-color) var(--spacing-4)
           );
-        }
-
-        & span {
-          margin-top: var(--spacing-2);
         }
       }
     }
