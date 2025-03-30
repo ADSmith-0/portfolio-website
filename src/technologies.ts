@@ -26,4 +26,8 @@ export const technologyFromId: Record<
     name: "C Programming Language",
     link: "https://en.wikipedia.org/wiki/C_(programming_language)",
   },
+  nativescript: {
+    name: "NativeScript",
+    link: "https://nativescript.org/",
+  },
 };
