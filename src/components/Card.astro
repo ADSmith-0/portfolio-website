@@ -1,5 +1,6 @@
 ---
 import Logo from "@components/Logo.astro";
+import RepoLink from "@components/RepoLink.astro";
 import { projects } from "src/projects";
 import { technologyFromId } from "src/technologies";
 import type { Project, ProjectId } from "src/types";
@@ -49,22 +50,11 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       </span>
     </a>
   </div>
-  <h2 class="fs-2xl pt-5">{title}</h2>
+  <h2>{title}</h2>
   <TechnologyIcons technologies={project.technologies} />
   <p class="overflow text-secondary" set:html={project.description} />
-  <div class="flex-row-center gap-3 w-100">
-    <span class={project.repo === "" ? "cursor-blocked" : ""}>
-      <a
-        href={project.repo}
-        class="btn"
-        aria-disabled={project.repo === ""}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Svg id="github" size={20} />
-        Repo
-      </a>
-    </span>
+  <div class="flex-row-center gap-3 w-100 mt-7">
+    <RepoLink repo={project.repo} />
     {
       project.link !== "" && (
         <LinkBtn href={project.link} disabled={false}>

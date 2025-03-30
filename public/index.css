@@ -60,6 +60,16 @@ h6 {
   margin: 0;
 }
 
+h1 {
+  font-size: var(--font-size-3xl);
+  padding-top: var(--spacing-5);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  padding-top: var(--spacing-4);
+}
+
 p {
   max-width: min(30em, 65ch);
 }
