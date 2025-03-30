@@ -1,4 +1,6 @@
 ---
+import RepoLink from "@components/RepoLink.astro";
+import TechnologyIcons from "@components/TechnologyIcons.astro";
 import Page from "@layouts/Page.astro";
 import type { GetStaticPaths } from "astro";
 import { projects } from "src/projects";
@@ -15,14 +17,26 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
 ---
 
 <Page title={project.name}>
-  <div class="container">
+  <div class="px-5 background">
     <h1>{project.name}</h1>
+    <p>{project.description}</p>
+    {
+      project.versions?.map((version) => (
+        <div class="mt-8">
+          <span class="flex-row-center gap-8 pt-4">
+            <h2 class="pt-0">{version.version}</h2>
+            {version.repo !== "" && (
+              <div class="fit-content">
+                <RepoLink repo={version.repo} />
+              </div>
+            )}
+          </span>
+          <div class="mt-4">
+            <TechnologyIcons technologies={version.technologies} size={40} />
+          </div>
+          <p class="mt-4">{version.description}</p>
+        </div>
+      ))
+    }
   </div>
 </Page>
-
-<style>
-  .container {
-    max-width: 70ch;
-    min-width: 60ch;
-  }
-</style>
