@@ -10,6 +10,22 @@ export const projects: Project[] = [
     link: "",
     repo: "https://github.com/ADSmith-0/gratitude-journal-v3",
     colour: "#ea54a4",
+    versions: [
+      {
+        version: "v2",
+        description:
+          "This version I tried to use NativeScript with Svelte to build a native app, although unfortunately it wasn't quite what I was looking for as there was a lot of basic functionality such as navigation that seemed quite difficult to do.",
+        technologies: ["nativescript", "svelte"],
+        repo: "",
+      },
+      {
+        version: "v1",
+        description:
+          "This version I used Svelte and made it a PWA. The idea was to learn Svelte and PWA's and to be able to make an app that functioned as a website, as well as, a mobile app. What I found was that PWA's were intended to be progressive enhancements to websites and so there were certain limitations, for example, the app always has to launch with an internet connection available. I didn't want this for the app I wanted to be able to use the app entirely offline, with the online experience being only used to backup data, so I looked to rewrite it as a native app in the next version.",
+        technologies: ["pwa", "svelte"],
+        repo: "https://github.com/ADSmith-0/gratitude-journal",
+      },
+    ],
   },
   {
     id: "chess",
@@ -20,6 +36,15 @@ export const projects: Project[] = [
     link: "https://vanilla-js-chess-v1.netlify.app/",
     repo: "https://github.com/ADSmith-0/vanilla-js-chess",
     colour: "#0cf",
+    versions: [
+      {
+        version: "v1",
+        description:
+          "This version I attempted to build chess using React, but I found it very hard to use as the reactivity meant it was re-rendering far more than it should, so I switched to a simpler approach in the next version.",
+        technologies: ["react"],
+        repo: "",
+      },
+    ],
   },
   {
     id: "dot-files",

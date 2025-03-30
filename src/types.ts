@@ -28,6 +28,12 @@ export type TechnologyId =
   | "c"
   | "pwa";
 
+type VersionNumber = `v${number}`;
+export type Version = { version: VersionNumber } & Pick<
+  Project,
+  "description" | "technologies" | "repo"
+>;
+
 export type Project = {
   id: ProjectId;
   name: string;
@@ -36,4 +42,5 @@ export type Project = {
   link: string;
   repo: string;
   colour: string;
+  versions?: Version[];
 };
