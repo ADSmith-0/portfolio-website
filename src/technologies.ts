@@ -30,4 +30,8 @@ export const technologyFromId: Record<
     name: "NativeScript",
     link: "https://nativescript.org/",
   },
+  pwa: {
+    name: "Progressive Web App",
+    link: "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app",
+  },
 };

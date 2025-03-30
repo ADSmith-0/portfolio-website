@@ -25,7 +25,8 @@ export type TechnologyId =
   | "neovim"
   | "tmux"
   | "alacritty"
-  | "c";
+  | "c"
+  | "pwa";
 
 export type Project = {
   id: ProjectId;
