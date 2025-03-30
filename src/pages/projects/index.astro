@@ -16,6 +16,16 @@ import { projects } from "src/projects";
     </ul>
   </div>
   <style>
+    html {
+      background-image: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent var(--bg-pattern-size),
+        var(--bg-color-accent) var(--bg-pattern-size),
+        var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
+      );
+    }
+
     .container {
       --card-width: max(17rem, 35ch);
       min-width: var(--card-width);

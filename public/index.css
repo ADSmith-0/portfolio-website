@@ -42,12 +42,17 @@
   --font-size-3xl: 3rem;
   --font-size-4xl: 4rem;
   /* End default values */
+
+  --background: hsl(var(--grey-950));
+
+  --bg-color-accent: hsl(var(--grey-900) / 0.2);
+  --bg-pattern-size: 50px;
 }
 
 html {
   font-family: "Inter", Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
     Arial, sans-serif;
-  background: hsl(var(--grey-950));
+  background: var(--background);
 }
 
 h1,

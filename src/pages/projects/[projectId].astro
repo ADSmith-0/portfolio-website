@@ -40,3 +40,22 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     }
   </div>
 </Page>
+
+<style>
+  html {
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent var(--bg-pattern-size),
+        var(--bg-color-accent) var(--bg-pattern-size),
+        var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent var(--bg-pattern-size),
+        var(--bg-color-accent) var(--bg-pattern-size),
+        var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
+      );
+  }
+</style>
