@@ -1,7 +1,7 @@
-import type { TechnologyIds } from "./types";
+import type { TechnologyId } from "./types";
 
 export const technologyFromId: Record<
-  TechnologyIds,
+  TechnologyId,
   { name: string; link: string }
 > = {
   go: { name: "Go", link: "https://go.dev/" },

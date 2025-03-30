@@ -1,4 +1,4 @@
-export type ProjectIds =
+export type ProjectId =
   | "grately"
   | "chess"
   | "dot-files"
@@ -11,9 +11,10 @@ export type ProjectIds =
   | "my-website"
   | "traversy-js-challenges";
 
-export type TechnologyIds =
+export type TechnologyId =
   | "javascript"
   | "typescript"
+  | "nativescript"
   | "web-components-api"
   | "go"
   | "oauth"
@@ -27,10 +28,10 @@ export type TechnologyIds =
   | "c";
 
 export type Project = {
-  id: ProjectIds;
+  id: ProjectId;
   name: string;
   description: string;
-  technologies: TechnologyIds[];
+  technologies: TechnologyId[];
   link: string;
   repo: string;
   colour: string;

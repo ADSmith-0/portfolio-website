@@ -1,12 +1,12 @@
 ---
-import type { Project, ProjectIds } from "src/types";
 import Logo from "@components/Logo.astro";
 import { projects } from "src/projects";
 import { technologyFromId } from "src/technologies";
+import type { Project, ProjectId } from "src/types";
 import Svg from "./Svg.astro";
 
 interface Props {
-  projectId: ProjectIds;
+  projectId: ProjectId;
   title: string;
 }
 
