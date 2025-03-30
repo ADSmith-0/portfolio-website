@@ -3,6 +3,7 @@ import Logo from "@components/Logo.astro";
 import { projects } from "src/projects";
 import { technologyFromId } from "src/technologies";
 import type { Project, ProjectId } from "src/types";
+import LinkBtn from "./LinkBtn.astro";
 import Svg from "./Svg.astro";
 import TechnologyIcons from "./TechnologyIcons.astro";
 
@@ -66,10 +67,10 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     </span>
     {
       project.link !== "" && (
-        <a href={project.link} class="btn">
+        <LinkBtn href={project.link} disabled={false}>
           <Svg id="outlink" size={20} />
           Open
-        </a>
+        </LinkBtn>
       )
     }
   </div>
@@ -135,35 +136,6 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
           & .details-text {
             visibility: visible;
           }
-        }
-      }
-
-      & .btn {
-        --_bg-color: hsl(var(--grey-900) / 0.5);
-        display: flex;
-        align-items: center;
-        border-radius: var(--spacing-2);
-        border: var(--spacing-1) solid hsl(var(--grey-800));
-        text-decoration: none;
-        padding: var(--spacing-3) var(--spacing-4);
-        gap: var(--spacing-2);
-        background-color: var(--_bg-color);
-        transition: background-color 50ms linear;
-
-        &:is(:hover, :focus-visible) {
-          background-color: hsl(var(--grey-800));
-        }
-
-        &[aria-disabled="true"] {
-          pointer-events: none;
-          --_stripe-color: hsl(var(--grey-800) / 0.5);
-          background-image: repeating-linear-gradient(
-            135deg,
-            var(--_bg-color),
-            var(--_bg-color) var(--spacing-3),
-            var(--_stripe-color) var(--spacing-3),
-            var(--_stripe-color) var(--spacing-4)
-          );
         }
       }
     }
