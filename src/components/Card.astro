@@ -4,6 +4,7 @@ import { projects } from "src/projects";
 import { technologyFromId } from "src/technologies";
 import type { Project, ProjectId } from "src/types";
 import Svg from "./Svg.astro";
+import TechnologyIcons from "./TechnologyIcons.astro";
 
 interface Props {
   projectId: ProjectId;
@@ -48,27 +49,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     </a>
   </div>
   <h2 class="fs-2xl pt-5">{title}</h2>
-  {
-    project.technologies.length > 1 && (
-      <div class="flex-row-center flex-wrap gap-2">
-        {project.technologies.map((tagId) => {
-          const tag = technologyFromId[tagId];
-          return (
-            <div class="pr-3 py-1">
-              <a
-                target="_blank"
-                class="block m-0"
-                href={tag.link}
-                title={tag.name}
-              >
-                <Logo id={tagId} size={30} />
-              </a>
-            </div>
-          );
-        })}
-      </div>
-    )
-  }
+  <TechnologyIcons technologies={project.technologies} />
   <p class="overflow text-secondary" set:html={project.description} />
   <div class="flex-row-center gap-3 w-100">
     <span class={project.repo === "" ? "cursor-blocked" : ""}>
