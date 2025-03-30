@@ -72,7 +72,8 @@ h2 {
 }
 
 p {
-  max-width: min(30em, 65ch);
+  max-width: 65ch;
+  padding-top: var(--spacing-2);
 }
 
 a,
