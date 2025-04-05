@@ -6,14 +6,15 @@ import Logo from "./Logo.astro";
 interface Props {
   technologies: TechnologyId[];
   size?: number;
+  spacing?: number;
 }
 
-const { technologies, size } = Astro.props;
+const { technologies, size, spacing } = Astro.props;
 ---
 
 {
   technologies.length > 0 && (
-    <div class="flex-row-center flex-wrap gap-3">
+    <div class={`flex-row-center flex-wrap gap-${spacing ?? 3}`}>
       {technologies.map((technologyId) => {
         const technology = technologyFromId[technologyId];
         return (
