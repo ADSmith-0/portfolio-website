@@ -27,19 +27,23 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     }
     {
       project.versions?.map((version) => (
-        <div class="mt-8">
-          <span class="flex-row-center gap-8 pt-4">
-            <h2 class="pt-0">{version.version}</h2>
+        <div class="previous-version-container mt-5 br-3 p-5">
+          <span class="grid">
+            <h3 class="pt-0 fs-2xl">{version.version}</h3>
+            <span class="flex-row-center">
+              <p class="text-secondary semibold pr-4">Using</p>
+              <TechnologyIcons
+                technologies={version.technologies}
+                size={32}
+              />
+            </span>
             {version.repo !== "" && (
               <div class="fit-content">
                 <RepoLink repo={version.repo} />
               </div>
             )}
           </span>
-          <div class="mt-4">
-            <TechnologyIcons technologies={version.technologies} size={40} />
-          </div>
-          <p class="mt-4">{version.description}</p>
+          <p class="mt-3 text-secondary">{version.description}</p>
         </div>
       ))
     }
@@ -62,5 +66,26 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         var(--bg-color-accent) var(--bg-pattern-size),
         var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
       );
+  }
+
+  .previous-version-container {
+    background-color: hsl(var(--grey-950));
+    border: var(--spacing-1) solid hsl(var(--grey-900));
+    transition: border-color 200ms ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+      border-color: hsl(var(--grey-800));
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    & > *:nth-child(2) {
+      justify-self: center;
+    }
+    & > *:nth-child(3) {
+      justify-self: end;
+    }
   }
 </style>
