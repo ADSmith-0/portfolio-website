@@ -49,7 +49,11 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     </a>
   </div>
   <h2>{title}</h2>
-  <TechnologyIcons technologies={project.technologies} />
+  {
+    project.technologies.length > 1 && (
+      <TechnologyIcons technologies={project.technologies} />
+    )
+  }
   <p class="overflow text-secondary" set:html={project.description} />
   <div class="flex-row-center gap-3 w-100 mt-7">
     <RepoLink repo={project.repo} />
