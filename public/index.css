@@ -45,8 +45,8 @@
 
   --background: hsl(var(--grey-950));
 
-  --bg-color-accent: hsl(var(--grey-900) / 0.2);
-  --bg-pattern-size: 50px;
+  --bg-color-accent: hsl(var(--grey-900) / 0.3);
+  --bg-pattern-size: 75px;
 }
 
 html {
