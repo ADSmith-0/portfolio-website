@@ -28,7 +28,7 @@ export type TechnologyId =
   | "c"
   | "pwa";
 
-type VersionNumber = `v${number}`;
+type VersionNumber = `V${number}`;
 export type Version = { version: VersionNumber } & Pick<
   Project,
   "description" | "technologies" | "repo"
