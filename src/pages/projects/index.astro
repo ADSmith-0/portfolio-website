@@ -7,7 +7,11 @@ import { projects } from "src/projects";
 <Page title="Adam Smith">
   <div class="container fixed">
     <h1>Projects</h1>
-    <ul role="list" class="link-card-grid align-items-center gap-3 p-0">
+    <ul
+      id="projects-grid"
+      role="list"
+      class="link-card-grid align-items-center gap-3 p-0"
+    >
       {
         projects.map((project) => (
           <Card projectId={project.id} title={project.name} />
@@ -37,4 +41,11 @@ import { projects } from "src/projects";
       }
     }
   </style>
+  <script>
+    const projectsGrid = document.getElementById("projects-grid");
+    document.addEventListener("mousemove", (event) => {
+      projectsGrid?.style.setProperty("--x", `${event.x}px`);
+      projectsGrid?.style.setProperty("--y", `${event.y}px`);
+    });
+  </script>
 </Page>

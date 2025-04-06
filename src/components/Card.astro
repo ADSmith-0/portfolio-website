@@ -76,13 +76,19 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       transition: border-color 0.1s ease-in-out;
       text-decoration: none;
       min-width: var(--card-width);
+
+      /* Background */
       background-color: hsl(var(--grey-950));
+      background-image: radial-gradient(
+        circle at var(--x) var(--y),
+        hsl(var(--grey-900) / 0.7) 0%,
+        transparent 20%
+      );
+      background-attachment: fixed;
 
       --_blur: var(--spacing-3);
-
       &:is(:hover, :focus-within) {
         border-color: var(--border-colour);
-        background-color: hsl(var(--grey-900) / 0.7);
         box-shadow:
           0 0 var(--_blur) var(--border-colour),
           inset 0 0 var(--_blur) var(--border-colour);
