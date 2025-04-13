@@ -9,6 +9,14 @@ export const technologyFromId: Record<
   react: { name: "React", link: "https://react.dev/" },
   "react-native": { name: "React Native", link: "https://reactnative.dev/" },
   svelte: { name: "Svelte", link: "https://svelte.dev/" },
+  sveltekit: {
+    name: "SvelteKit",
+    link: "https://svelte.dev/tutorial/kit/introducing-sveltekit",
+  },
+  next: {
+    name: "Next",
+    link: "https://nextjs.org/",
+  },
   javascript: {
     name: "JavaScript",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",

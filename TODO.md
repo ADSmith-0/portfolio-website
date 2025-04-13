@@ -1,6 +1,13 @@
-- [ ] Finish cards
-- [ ] Attribute all images
-- [ ] Make navbar responsive
-- [ ] Finish Three.js landing screen animation
-- [ ] Do About Page
-- [ ] Link to CV
+- Finish details page (add aside for navigation)
+- Add current version to versions list
+- Add icons for every project
+- Remove version number from type
+- Add short description and long description
+- Do About Page
+- Link to CV
+- Attribute all images
+- Make navbar responsive?
+- Finish Three.js landing screen animation
+- Add other projects to website
+- Add search bar for searching through projects
+- Fix issue on main page where text comes in, it should be there from the beginning for accessbility/SEO

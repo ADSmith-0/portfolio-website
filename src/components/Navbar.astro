@@ -6,7 +6,7 @@ const links: [href: string, label: string][] = [
 ];
 ---
 
-<div class="navbar-container pt-5 pb-7 pl-7">
+<div id="navbar" class="pt-5 pb-7 pl-7">
   <nav class="flex-row-center relative ml-7 gap-7 no-transition">
     {
       links.map(([href, label]) => (
@@ -18,9 +18,14 @@ const links: [href: string, label: string][] = [
   </nav>
 </div>
 <style>
-  .navbar-container {
+  #navbar {
     background: hsl(var(--grey-950));
     border-bottom: var(--spacing-1) solid hsl(var(--grey-900));
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: var(--navbar-height);
+    box-sizing: border-box;
   }
   a {
     text-decoration: none;
