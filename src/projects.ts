@@ -14,14 +14,12 @@ export const projects: Project[] = [
     colour: "#ea54a4",
     versions: [
       {
-        version: "V2",
         about:
           "This version I tried to use NativeScript with Svelte to build a native app, although unfortunately it wasn't quite what I was looking for as there was a lot of basic functionality such as navigation that seemed quite difficult to do.",
         technologies: ["nativescript", "svelte"],
         repo: "",
       },
       {
-        version: "V1",
         about:
           "This version I used Svelte and made it a PWA. The idea was to learn Svelte and PWA's and to be able to make an app that functioned as a website, as well as, a mobile app. What I found was that PWA's were intended to be progressive enhancements to websites and so there were certain limitations, for example, the app always has to launch with an internet connection available. I didn't want this for the app I wanted to be able to use the app entirely offline, with the online experience being only used to backup data, so I looked to rewrite it as a native app in the next version.",
         technologies: ["pwa", "svelte"],
@@ -42,7 +40,6 @@ export const projects: Project[] = [
     colour: "#0cf",
     versions: [
       {
-        version: "V1",
         about:
           "This version I attempted to build chess using React, but I found it very hard to use as the reactivity meant it was re-rendering far more than it should, so I switched to a simpler approach in the next version.",
         technologies: ["react"],
@@ -122,7 +119,6 @@ export const projects: Project[] = [
     colour: "#ff5d01",
     versions: [
       {
-        version: "V2",
         technologies: ["sveltekit"],
         repo: "https://github.com/ADSmith-0/my-website",
         link: "https://app.netlify.com/sites/portfolio-website-adamsmith/overview",
@@ -130,7 +126,6 @@ export const projects: Project[] = [
           "For the next version, I decided to change over to use SvelteKit as I really enjoyed using Svelte for how light-weight it was. I thought that this was much better, but I found generally there were some points I wasn't a massive fan of with SvelteKit such as almost every file being called 'index', or the way that handling server side data or static paths seemed so difficult, and I found it difficult to get type-safety working across the front and backend as well.",
       },
       {
-        version: "V1",
         technologies: ["next"],
         repo: "https://github.com/ADSmith-0/personal-website",
         about:

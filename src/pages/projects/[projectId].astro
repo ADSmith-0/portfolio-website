@@ -47,9 +47,9 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         )
       }
       {
-        project.versions?.map((version) => (
+        project.versions?.map((version, index) => (
           <ProjectVersion
-            version={version.version}
+            version={`V${project.versions!.length - (index)}`}
             technologies={version.technologies}
             repo={version.repo}
             about={version.about}

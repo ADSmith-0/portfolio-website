@@ -3,7 +3,9 @@ import type { Version } from "src/types";
 import RepoLink from "./RepoLink.astro";
 import TechnologyIcons from "./TechnologyIcons.astro";
 
-interface Props extends Version {}
+interface Props extends Version {
+  version: `V${number}`;
+}
 
 const { version, technologies, repo, about } = Astro.props;
 ---
