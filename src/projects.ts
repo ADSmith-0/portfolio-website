@@ -59,7 +59,7 @@ export const projects: Project[] = [
     technologies: ["neovim", "tmux", "alacritty"],
     link: "",
     repo: "https://github.com/ADSmith-0/dot-files",
-    colour: "#ffffff",
+    colour: "#1bb91f",
   },
   {
     id: "artist-network",

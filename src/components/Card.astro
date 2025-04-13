@@ -2,7 +2,6 @@
 import Logo from "@components/Logo.astro";
 import RepoLink from "@components/RepoLink.astro";
 import { projects } from "src/projects";
-import { technologyFromId } from "src/technologies";
 import type { Project, ProjectId } from "src/types";
 import LinkBtn from "./LinkBtn.astro";
 import Svg from "./Svg.astro";
@@ -23,21 +22,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
   style={`--border-colour: ${project.colour};`}
 >
   <div class="flex-row-center justify-between self-stretch align-items-start">
-    {
-      project.technologies.length > 1 ? (
-        <Logo id={projectId} size={55} />
-      ) : (
-        <a
-          class="block m-0"
-          href={technologyFromId[project.technologies[0]].link}
-          title={technologyFromId[project.technologies[0]].name}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Logo id={project.technologies[0]} size={55} />
-        </a>
-      )
-    }
+    <Logo id={projectId} size={55} />
     <a
       href=`/projects/${projectId}`
       class="details-link flex-row-center px-4 py-3 gap-1 br-2"
@@ -49,13 +34,9 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
     </a>
   </div>
   <h2>{title}</h2>
-  {
-    project.technologies.length > 1 && (
-      <span class="mt-3">
-        <TechnologyIcons technologies={project.technologies} />
-      </span>
-    )
-  }
+  <span class="mt-3">
+    <TechnologyIcons technologies={project.technologies} />
+  </span>
   <p class="overflow text-secondary mt-4" set:html={project.description} />
   <div class="flex-row-center gap-3 w-100 mt-7">
     <RepoLink repo={project.repo} />
