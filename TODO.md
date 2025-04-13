@@ -1,4 +1,3 @@
-2. Refactor data (technologies, projects, types) into 1 file
 3. Do About Page
 4. Link to CV
 5. Attribute all images
