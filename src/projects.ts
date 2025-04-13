@@ -110,15 +110,33 @@ export const projects: Project[] = [
     colour: "#03599C",
   },
   {
-    id: "my-website",
-    name: "My Website",
+    id: "portfolio-website",
+    name: "Portfolio website",
     description:
       "My portfolio website for showing off my projects. This is the website that you are currently using",
-    about: "",
+    about:
+      "For the current iteration I wanted to try out Astro. I wanted to make a proper SSG focused website with something as close to vanilla as possible, this website uses no libraries as a result and all effects, animation and functionality was written with basic DOM-based TypeScript. I've very much enjoyed using Astro as well as getting back to the basics.",
     technologies: ["astro"],
     link: "https://adsmith-0-dev.netlify.app/",
     repo: "https://github.com/adsmith-0/my-website",
     colour: "#ff5d01",
+    versions: [
+      {
+        version: "V2",
+        technologies: ["sveltekit"],
+        repo: "https://github.com/ADSmith-0/my-website",
+        link: "https://app.netlify.com/sites/portfolio-website-adamsmith/overview",
+        about:
+          "For the next version, I decided to change over to use SvelteKit as I really enjoyed using Svelte for how light-weight it was. I thought that this was much better, but I found generally there were some points I wasn't a massive fan of with SvelteKit such as almost every file being called 'index', or the way that handling server side data or static paths seemed so difficult, and I found it difficult to get type-safety working across the front and backend as well.",
+      },
+      {
+        version: "V1",
+        technologies: ["next"],
+        repo: "https://github.com/ADSmith-0/personal-website",
+        about:
+          "I created this using Next.js, I found that it was ok but also quite difficult to use. This was back when 'useStaticProps' and 'useServerSideProps' was the way you handled data.",
+      },
+    ],
   },
   {
     id: "js-patterns",

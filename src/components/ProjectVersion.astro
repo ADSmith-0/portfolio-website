@@ -1,0 +1,50 @@
+---
+import type { Version } from "src/types";
+import RepoLink from "./RepoLink.astro";
+import TechnologyIcons from "./TechnologyIcons.astro";
+
+interface Props extends Version {}
+
+const { version, technologies, repo, about } = Astro.props;
+---
+
+<div class="previous-version-container mt-5 br-3 p-5">
+  <span class="previous-version-grid">
+    <h3 class="pt-0 fs-2xl">{version}</h3>
+    <span class="flex-row-center">
+      <p class="text-secondary semibold pr-4">Using</p>
+      <TechnologyIcons technologies={technologies} size={32} spacing={4} />
+    </span>
+    {
+      repo !== "" && (
+        <div class="fit-content">
+          <RepoLink repo={repo} />
+        </div>
+      )
+    }
+  </span>
+  <p class="mt-3 text-secondary">{about}</p>
+</div>
+
+<style>
+  .previous-version-container {
+    background-color: hsl(var(--grey-950));
+    border: var(--spacing-1) solid hsl(var(--grey-900));
+    transition: border-color 200ms ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+      border-color: hsl(var(--grey-800));
+    }
+  }
+
+  .previous-version-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    & > *:nth-child(2) {
+      justify-self: center;
+    }
+    & > *:nth-child(3) {
+      justify-self: end;
+    }
+  }
+</style>

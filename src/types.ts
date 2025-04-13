@@ -8,7 +8,6 @@ export type ProjectId =
   | "typescript-server"
   | "c-programming-language"
   | "portfolio-website"
-  | "my-website"
   | "traversy-js-challenges";
 
 export type TechnologyId =
@@ -21,6 +20,8 @@ export type TechnologyId =
   | "react"
   | "react-native"
   | "svelte"
+  | "sveltekit"
+  | "next"
   | "astro"
   | "neovim"
   | "tmux"
@@ -32,7 +33,8 @@ export type VersionNumber = `V${number}`;
 export type Version = { version: VersionNumber } & Pick<
   Project,
   "technologies" | "repo" | "about"
->;
+> &
+  Partial<Pick<Project, "link">>;
 
 export type Project = {
   id: ProjectId;
