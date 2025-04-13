@@ -1,5 +1,6 @@
 - Finish details page (add aside for navigation)
 - Add current version to versions list
+- Add icons for every project
 - Remove version number from type
 - Add short description and long description
 - Do About Page
