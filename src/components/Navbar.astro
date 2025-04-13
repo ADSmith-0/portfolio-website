@@ -21,6 +21,11 @@ const links: [href: string, label: string][] = [
   #navbar {
     background: hsl(var(--grey-950));
     border-bottom: var(--spacing-1) solid hsl(var(--grey-900));
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: var(--navbar-height);
+    box-sizing: border-box;
   }
   a {
     text-decoration: none;

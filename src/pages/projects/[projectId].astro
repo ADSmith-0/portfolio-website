@@ -16,14 +16,14 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
 ---
 
 <Page title={project.name}>
-  <div id="layout-grid">
+  <div id="layout-container">
     <aside>
       <div class="flex-column px-7 gap-2 pt-8">
         {
           projects.map((project) => (
             <a
               href={`/projects/${project.id}`}
-              class={projectId === project.id ? "selected semibold" : ""}
+              class={`${projectId === project.id ? "selected semibold" : ""} px-6 py-4 br-3`}
             >
               {project.name}
             </a>
@@ -31,7 +31,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         }
       </div>
     </aside>
-    <div class="container fixed-width pl-10 pt-7">
+    <div class="fixed-width pl-10 pt-7 pb-10">
       <h1>{project.name}</h1>
       <p set:html={project.description} />
       <h2 class="mt-8 text-secondary fs-xl fw-normal">Current Version</h2>
@@ -78,25 +78,21 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       );
   }
 
-  #layout-grid {
-    position: relative;
-    height: 100%;
+  #layout-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    height: calc(100% - var(--navbar-height));
 
     & > aside {
-      position: absolute;
-      top: 0;
-      width: 20rem;
+      position: sticky;
+      top: var(--navbar-height);
       height: 100%;
-      display: fixed;
       background-color: hsl(var(--grey-950));
       border-right: var(--spacing-1) solid hsl(var(--grey-900));
 
       & a {
         text-decoration: none;
-        padding-block: var(--spacing-4);
-        padding-left: var(--spacing-8);
         transition: transform 100ms linear;
-        border-radius: var(--spacing-3);
 
         &:is(:hover, :focus-visible) {
           background-color: hsl(var(--orange) / 0.2);
@@ -106,9 +102,6 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
           }
         }
       }
-    }
-    & > .container {
-      margin-left: 20rem;
     }
     & > .fixed-width {
       max-width: 70ch;
