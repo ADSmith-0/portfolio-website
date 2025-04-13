@@ -28,16 +28,17 @@ export type TechnologyId =
   | "c"
   | "pwa";
 
-type VersionNumber = `V${number}`;
+export type VersionNumber = `V${number}`;
 export type Version = { version: VersionNumber } & Pick<
   Project,
-  "description" | "technologies" | "repo"
+  "technologies" | "repo" | "about"
 >;
 
 export type Project = {
   id: ProjectId;
   name: string;
   description: string;
+  about: string;
   technologies: TechnologyId[];
   link: string;
   repo: string;

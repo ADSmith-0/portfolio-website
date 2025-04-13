@@ -1,6 +1,5 @@
 ---
-import RepoLink from "@components/RepoLink.astro";
-import TechnologyIcons from "@components/TechnologyIcons.astro";
+import ProjectVersion from "@components/ProjectVersion.astro";
 import Page from "@layouts/Page.astro";
 import type { GetStaticPaths } from "astro";
 import { projects } from "src/projects";
@@ -17,37 +16,47 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
 ---
 
 <Page title={project.name}>
-  <div class="px-5 background">
-    <h1>{project.name}</h1>
-    <p>{project.description}</p>
-    {
-      (project.versions?.length ?? 0) > 0 && (
-        <h2 class="mt-8 text-secondary fs-xl fw-normal">Previous Versions</h2>
-      )
-    }
-    {
-      project.versions?.map((version) => (
-        <div class="previous-version-container mt-5 br-3 p-5">
-          <span class="grid">
-            <h3 class="pt-0 fs-2xl">{version.version}</h3>
-            <span class="flex-row-center">
-              <p class="text-secondary semibold pr-4">Using</p>
-              <TechnologyIcons
-                technologies={version.technologies}
-                size={32}
-                spacing={4}
-              />
-            </span>
-            {version.repo !== "" && (
-              <div class="fit-content">
-                <RepoLink repo={version.repo} />
-              </div>
-            )}
-          </span>
-          <p class="mt-3 text-secondary">{version.description}</p>
-        </div>
-      ))
-    }
+  <div id="layout-grid">
+    <aside>
+      <div class="flex-column px-7 gap-2 pt-8">
+        {
+          projects.map((project) => (
+            <a
+              href={`/projects/${project.id}`}
+              class={projectId === project.id ? "selected semibold" : ""}
+            >
+              {project.name}
+            </a>
+          ))
+        }
+      </div>
+    </aside>
+    <div class="container fixed-width pl-10 pt-7">
+      <h1>{project.name}</h1>
+      <p set:html={project.description} />
+      <h2 class="mt-8 text-secondary fs-xl fw-normal">Current Version</h2>
+      <ProjectVersion
+        version={`V${(project.versions?.length ?? 0) + 1}`}
+        technologies={project.technologies}
+        repo={project.repo}
+        about={project.about}
+      />
+      {
+        (project.versions?.length ?? 0) > 0 && (
+          <h2 class="mt-8 text-secondary fs-xl fw-normal">Previous Versions</h2>
+        )
+      }
+      {
+        project.versions?.map((version) => (
+          <ProjectVersion
+            version={version.version}
+            technologies={version.technologies}
+            repo={version.repo}
+            about={version.about}
+          />
+        ))
+      }
+    </div>
   </div>
 </Page>
 
@@ -69,24 +78,54 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       );
   }
 
-  .previous-version-container {
-    background-color: hsl(var(--grey-950));
-    border: var(--spacing-1) solid hsl(var(--grey-900));
-    transition: border-color 200ms ease-in-out;
+  #layout-grid {
+    position: relative;
+    height: 100%;
 
-    &:is(:hover, :focus-visible) {
-      border-color: hsl(var(--grey-800));
+    & > aside {
+      position: absolute;
+      top: 0;
+      width: 20rem;
+      height: 100%;
+      display: fixed;
+      background-color: hsl(var(--grey-950));
+      border-right: var(--spacing-1) solid hsl(var(--grey-900));
+
+      & a {
+        text-decoration: none;
+        padding-block: var(--spacing-4);
+        padding-left: var(--spacing-8);
+        transition: transform 100ms linear;
+        border-radius: var(--spacing-3);
+
+        &:is(:hover, :focus-visible) {
+          background-color: hsl(var(--orange) / 0.2);
+
+          &:not(.selected) {
+            transform: translateX(1%);
+          }
+        }
+      }
+    }
+    & > .container {
+      margin-left: 20rem;
+    }
+    & > .fixed-width {
+      max-width: 70ch;
     }
   }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    & > *:nth-child(2) {
-      justify-self: center;
-    }
-    & > *:nth-child(3) {
-      justify-self: end;
-    }
+  .selected {
+    color: hsl(var(--orange));
   }
 </style>
+<script>
+  const navbar = document.getElementById("navbar");
+  const navbarHeight = navbar?.offsetHeight;
+
+  const aside = document.querySelector("aside");
+
+  if (aside) {
+    console.log("navbarHeight:", navbarHeight);
+    aside.style.height = window.innerHeight - (navbarHeight ?? 0) + "px";
+  }
+</script>
