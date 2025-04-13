@@ -2,8 +2,7 @@
 import ProjectVersion from "@components/ProjectVersion.astro";
 import Page from "@layouts/Page.astro";
 import type { GetStaticPaths } from "astro";
-import { projects } from "src/projects";
-import type { Project } from "src/types";
+import { projects, type Project } from "src/data";
 
 export const getStaticPaths = (() =>
   projects.map(({ id }) => ({
