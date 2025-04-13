@@ -1,11 +1,11 @@
-- Remove version number from type
-- Refactor data (technologies, projects, types) into 1 file
-- Do About Page
-- Link to CV
-- Attribute all images
-- Make navbar responsive?
-- Finish Three.js landing screen animation
-- Add other projects to website
-- Add search bar for searching through projects
-- Fix issue on main page where text comes in, it should be there from the beginning for accessbility/SEO
-- Make project details page responsive
+1. Remove version number from type
+2. Refactor data (technologies, projects, types) into 1 file
+3. Do About Page
+4. Link to CV
+5. Attribute all images
+6. Make navbar responsive?
+7. Finish Three.js landing screen animation
+8. Add other projects to website
+9. Add search bar for searching through projects
+10. Fix issue on main page where text comes in, it should be there from the beginning for accessbility/SEO
+11. Make project details page responsive
