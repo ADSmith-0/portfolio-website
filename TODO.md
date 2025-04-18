@@ -1,5 +1,5 @@
 3. Make About Page
-4. Link to CV
+4. Link to CV?
 5. Attribute all images
 6. Make navbar responsive?
 7. Finish Three.js landing screen animation
