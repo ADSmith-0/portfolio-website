@@ -89,6 +89,12 @@ a:visited {
   color: hsl(var(--white));
 }
 
+footer {
+  padding: var(--spacing-5);
+  padding-left: var(--spacing-10);
+  background-color: hsl(var(--grey-900));
+}
+
 .fixed {
   width: 70rem;
 
