@@ -32,4 +32,33 @@ const { title } = Astro.props;
       <slot />
     </main>
   </body>
+  <footer>
+    <div>
+      <div>
+        <p class="text-secondary semibold pb-4">Resources</p>
+        <a href="/attribution">Attribution</a>
+      </div>
+      <div>
+        <p class="text-secondary semibold pb-5">Links</p>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/adam-smith-9728511ba/">LinkedIn</a
+        >
+        <a target="_blank" href="https://github.com/ADSmith-0">Github</a>
+      </div>
+    </div>
+  </footer>
 </html>
+
+<style>
+  footer > div {
+    display: inline-grid;
+    grid-template-columns: repeat(2, auto);
+    gap: var(--spacing-10);
+
+    & a {
+      display: block;
+      padding-top: var(--spacing-3);
+    }
+  }
+</style>
