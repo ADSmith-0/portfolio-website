@@ -8,3 +8,4 @@
 12. Make navbar responsive
 13. Link to github account
 14. Add timeline to about page
+15. Add about description
