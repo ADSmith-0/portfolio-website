@@ -1,7 +1,131 @@
 ---
+import AboutCard from "@components/AboutCard.astro";
+import Logo from "@components/Logo.astro";
+import TechnologyIcon from "@components/TechnologyIcon.astro";
 import Page from "@layouts/Page.astro";
 ---
 
 <Page title="About">
-  <h1>About</h1>
+  <div class="fixed mx-auto">
+    <h1>About</h1>
+    <div class="grid">
+      <AboutCard
+        title="Favourite Technologies"
+        colourStart="crimson"
+        colourEnd="darkorange"
+      >
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="astro" size={28} />
+          Astro
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="typescript" size={28} />
+          TypeScript
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="svelte" size={28} />
+          Svelte
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="go" size={28} />
+          Go
+        </li>
+      </AboutCard>
+      <AboutCard
+        title="Want to learn"
+        colourStart="orange"
+        colourEnd="greenyellow"
+      >
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="rust" size={28} />Rust
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="zig" size={28} />Zig
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="elixir" size={28} />Elixir
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="htmx" size={28} />Htmx
+        </li>
+        <li class="flex-row-center gap-3">
+          <Logo id="box" size={28} />3D Graphics
+        </li>
+        <li class="flex-row-center gap-3">
+          <Logo id="database" size={28} />More about databases & SQL
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="websockets" size={28} />More about
+          Websockets
+        </li>
+      </AboutCard>
+      <AboutCard
+        title="Favourite learning resources"
+        colourStart="springgreen"
+        colourEnd="turquoise"
+      >
+        <li>
+          <a
+            class="blue"
+            target="_blank"
+            href="https://www.youtube.com/@ThePrimeTimeagen/videos">Primeagen</a
+          >
+        </li>
+        <li>
+          <a
+            class="blue"
+            target="_blank"
+            href="https://developer.mozilla.org/en-US/">MDN</a
+          >
+        </li>
+        <li>
+          <a class="blue" target="_blank" href="https://web.dev/">Web.dev</a>
+        </li>
+        <li>
+          <a class="blue" target="_blank" href="https://www.w3schools.com/"
+            >W3Schools</a
+          >
+        </li>
+        <li>
+          <a
+            class="blue"
+            target="_blank"
+            href="https://app.codecrafters.io/catalog">CodeCrafters</a
+          >
+        </li>
+      </AboutCard>
+      <AboutCard
+        title="Currently learning"
+        colourStart="darkviolet"
+        colourEnd="hotpink"
+      >
+        <li class="flex-row-center gap-3">
+          <Logo id="c" size={28} /><a
+            class="blue"
+            target="_blank"
+            href="https://en.wikipedia.org/wiki/The_C_Programming_Language"
+            >The C programming language</a
+          >
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="go" size={28} />Go
+        </li>
+        <li class="flex-row-center gap-3">
+          <TechnologyIcon technologyId="astro" size={28} />Astro
+        </li>
+      </AboutCard>
+    </div>
+  </div>
 </Page>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: var(--spacing-5);
+    padding-bottom: var(--spacing-7);
+  }
+  li {
+    color: hsl(var(--grey-100));
+  }
+</style>

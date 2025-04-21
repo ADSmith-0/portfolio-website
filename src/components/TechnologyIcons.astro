@@ -1,6 +1,6 @@
 ---
-import { technologyFromId, type TechnologyId } from "src/data";
-import Logo from "./Logo.astro";
+import type { TechnologyId } from "src/data";
+import TechnologyIcon from "./TechnologyIcon.astro";
 
 interface Props {
   technologies: TechnologyId[];
@@ -14,19 +14,9 @@ const { technologies, size, spacing } = Astro.props;
 {
   technologies.length > 0 && (
     <div class={`flex-row-center flex-wrap gap-${spacing ?? 3}`}>
-      {technologies.map((technologyId) => {
-        const technology = technologyFromId[technologyId];
-        return (
-          <a
-            target="_blank"
-            class="flex-row-center m-0"
-            href={technology.link}
-            title={technology.name}
-          >
-            <Logo id={technologyId} size={size ?? 30} />
-          </a>
-        );
-      })}
+      {technologies.map((technologyId) => (
+        <TechnologyIcon technologyId={technologyId} size={size} />
+      ))}
     </div>
   )
 }
