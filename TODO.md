@@ -1,4 +1,3 @@
-3. Make About Page
 4. Link to CV?
 6. Make navbar responsive?
 7. Finish Three.js landing screen animation
@@ -8,3 +7,4 @@
 11. Make project details page responsive
 12. Make navbar responsive
 13. Link to github account
+14. Add timeline to about page
