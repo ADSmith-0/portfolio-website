@@ -27,12 +27,14 @@ export type TechnologyId =
   | "tmux"
   | "alacritty"
   | "c"
-  | "pwa";
+  | "pwa"
+  | "rust"
+  | "zig"
+  | "elixir"
+  | "htmx"
+  | "websockets";
 
-export type Version = Pick<
-  Project,
-  "technologies" | "repo" | "about"
-> &
+export type Version = Pick<Project, "technologies" | "repo" | "about"> &
   Partial<Pick<Project, "link">>;
 
 export type Project = {
@@ -88,6 +90,26 @@ export const technologyFromId: Record<
   pwa: {
     name: "Progressive Web App",
     link: "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app",
+  },
+  rust: {
+    name: "Rust",
+    link: "https://www.rust-lang.org/",
+  },
+  zig: {
+    name: "Zig",
+    link: "https://ziglang.org/",
+  },
+  elixir: {
+    name: "Elixir",
+    link: "https://elixir-lang.org/",
+  },
+  htmx: {
+    name: "Htmx",
+    link: "https://htmx.org/",
+  },
+  websockets: {
+    name: "Websockets",
+    link: "https://en.wikipedia.org/wiki/WebSocket",
   },
 };
 

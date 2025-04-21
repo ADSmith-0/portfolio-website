@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  colourStart: string;
+  colourEnd: string;
+}
+
+const { title, colourStart, colourEnd } = Astro.props;
+---
+
+<div
+  class="container br-2 py-4 px-5"
+  style={`--background-colour-start: ${colourStart}; --background-colour-end: ${colourEnd};`}
+>
+  <h3 class="fs-m text-secondary mb-3">{title}</h3>
+  <ul class="list flex-column gap-3">
+    <slot />
+  </ul>
+</div>
+
+<style>
+  .container {
+    background-color: hsl(var(--grey-950));
+    position: relative;
+
+    &::before {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      inset: calc(-1 * var(--spacing-3));
+      background: linear-gradient(
+        135deg,
+        var(--background-colour-start),
+        var(--background-colour-end)
+      );
+      box-shadow: inset 0 0 var(--spacing-3) var(--spacing-3)
+        hsl(var(--grey-950));
+      z-index: -1;
+    }
+
+    & .list {
+      list-style: none;
+      padding: 0;
+    }
+  }
+</style>

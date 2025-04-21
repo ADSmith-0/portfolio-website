@@ -1,0 +1,7 @@
+<svg viewBox="0 0 80 1" xmlns="http://www.w3.org/2000/svg">
+  <text x="5" y="15" fill="white" font-size="40" stroke-width="3" stroke="white">
+    <tspan>&lt;</tspan>
+    <tspan dx="-10" fill="#3d72d7" stroke="#3d72d7">/</tspan>
+    <tspan dx="-10">&gt;</tspan>
+  </text>
+</svg> 
