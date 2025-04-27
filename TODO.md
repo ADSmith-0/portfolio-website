@@ -8,3 +8,4 @@
 12. Make navbar responsive
 13. Link to github account
 14. Add timeline to about page
+16. Fix error where navbar is behind the side bar when the user scrolls down on a project details page (can be fixed with increasing z-index for navbar)
