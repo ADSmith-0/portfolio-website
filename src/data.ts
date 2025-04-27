@@ -213,7 +213,7 @@ export const projects: Project[] = [
     description:
       'Exercises and notes taken from working through <a target="_blank" href="https://en.wikipedia.org/wiki/The_C_Programming_Language">The C Programming Language</a> book.',
     about:
-      "This was to help me to gain a deeper understanding of programming in a way that high level interpreted languages would not, while also learning C so that other compiles languages that I wanted to learn such as C++, Go, or Rust would be easier to understand. I also have a script to help me compile some of exercises more easily, and for the most complicated files I've also used Make to make it easier to compile the more complex programs I wrote as part of the book.",
+      "This was to help me to gain a deeper understanding of programming in a way that high level interpreted languages would not, while also learning C so that other compiled languages that I wanted to learn such as C++, Go, or Rust would be easier to understand. I also have a script to help me compile some of exercises more easily, and for the most complicated files I've also used Make to make it easier to compile the more complex programs I wrote as part of the book.",
     technologies: ["c"],
     link: "",
     repo: "https://github.com/ADSmith-0/C-programming-language",
