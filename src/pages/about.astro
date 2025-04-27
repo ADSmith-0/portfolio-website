@@ -8,6 +8,12 @@ import Page from "@layouts/Page.astro";
 <Page title="About">
   <div class="fixed mx-auto">
     <h1>About</h1>
+    <p class="pb-6">
+      I'm a fullstack developer that enjoys learning new things and trying new
+      technologies. I've worked with lots of different projects, below is a
+      non‐exhaustive list of things that I've enjoyed and what I'm currently
+      working on:
+    </p>
     <div class="grid">
       <AboutCard
         title="Favourite Technologies"
@@ -119,6 +125,9 @@ import Page from "@layouts/Page.astro";
 </Page>
 
 <style>
+  .fixed {
+    width: 70ch;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
