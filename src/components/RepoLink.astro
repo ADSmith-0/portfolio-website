@@ -1,0 +1,18 @@
+---
+import Svg from "@components/Svg.astro";
+import LinkBtn from "./LinkBtn.astro";
+interface Props {
+  repo: string;
+}
+const { repo } = Astro.props;
+---
+
+<span
+  class={repo === "" ? "cursor-blocked" : ""}
+  title={repo === "" ? "Repo is private or doesn't exist" : ""}
+>
+  <LinkBtn href={repo} disabled={repo === ""}>
+    <Svg id="github" size={20} />
+    Repo
+  </LinkBtn>
+</span>

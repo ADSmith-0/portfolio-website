@@ -1,0 +1,20 @@
+---
+import { technologyFromId, type TechnologyId } from "src/data";
+import Logo from "./Logo.astro";
+
+interface Props {
+  technologyId: TechnologyId;
+  size?: number;
+}
+const { technologyId, size } = Astro.props;
+const technology = technologyFromId[technologyId];
+---
+
+<a
+  target="_blank"
+  class="flex-row-center m-0"
+  href={technology.link}
+  title={technology.name}
+>
+  <Logo id={technologyId} size={size ?? 30} />
+</a>

@@ -1,8 +1,8 @@
 ---
+import ProjectVersion from "@components/ProjectVersion.astro";
 import Page from "@layouts/Page.astro";
 import type { GetStaticPaths } from "astro";
-import { projects } from "src/projects";
-import type { Project } from "src/types";
+import { projects, type Project } from "src/data";
 
 export const getStaticPaths = (() =>
   projects.map(({ id }) => ({
@@ -15,14 +15,109 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
 ---
 
 <Page title={project.name}>
-  <div class="container">
-    <h1>{project.name}</h1>
+  <div id="layout-container">
+    <aside>
+      <div class="flex-column px-7 gap-2 pt-8">
+        {
+          projects.map((project) => (
+            <a
+              href={`/projects/${project.id}`}
+              class={`${projectId === project.id ? "selected semibold" : ""} px-6 py-4 br-3`}
+            >
+              {project.name}
+            </a>
+          ))
+        }
+      </div>
+    </aside>
+    <div class="fixed-width pl-10 pt-7 pb-10">
+      <h1>{project.name}</h1>
+      <p set:html={project.description} />
+      <h2 class="mt-8 text-secondary fs-xl fw-normal">Current Version</h2>
+      <ProjectVersion
+        version={`V${(project.versions?.length ?? 0) + 1}`}
+        technologies={project.technologies}
+        repo={project.repo}
+        about={project.about}
+      />
+      {
+        (project.versions?.length ?? 0) > 0 && (
+          <h2 class="mt-8 text-secondary fs-xl fw-normal">Previous Versions</h2>
+        )
+      }
+      {
+        project.versions?.map((version, index) => (
+          <ProjectVersion
+            version={`V${project.versions!.length - (index)}`}
+            technologies={version.technologies}
+            repo={version.repo}
+            about={version.about}
+          />
+        ))
+      }
+    </div>
   </div>
 </Page>
 
 <style>
-  .container {
-    max-width: 70ch;
-    min-width: 60ch;
+  html {
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent var(--bg-pattern-size),
+        var(--bg-color-accent) var(--bg-pattern-size),
+        var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent var(--bg-pattern-size),
+        var(--bg-color-accent) var(--bg-pattern-size),
+        var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
+      );
+  }
+
+  #layout-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    height: calc(100% - var(--navbar-height));
+
+    & > aside {
+      position: sticky;
+      top: var(--navbar-height);
+      height: 100%;
+      background-color: hsl(var(--grey-950));
+      border-right: var(--spacing-1) solid hsl(var(--grey-900));
+
+      & a {
+        text-decoration: none;
+        transition: transform 100ms linear;
+
+        &:is(:hover, :focus-visible) {
+          background-color: hsl(var(--orange) / 0.2);
+
+          &:not(.selected) {
+            transform: translateX(1%);
+          }
+        }
+      }
+    }
+    & > .fixed-width {
+      max-width: 70ch;
+    }
+  }
+  .selected {
+    color: hsl(var(--orange));
   }
 </style>
+<script>
+  const navbar = document.getElementById("navbar");
+  const navbarHeight = navbar?.offsetHeight;
+
+  const aside = document.querySelector("aside");
+
+  if (aside) {
+    console.log("navbarHeight:", navbarHeight);
+    aside.style.height = window.innerHeight - (navbarHeight ?? 0) + "px";
+  }
+</script>

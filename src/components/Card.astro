@@ -1,11 +1,13 @@
 ---
-import type { Project, ProjectIds } from "src/types";
 import Logo from "@components/Logo.astro";
-import { projects } from "src/projects";
-import { technologyFromId } from "src/technologies";
+import RepoLink from "@components/RepoLink.astro";
+import { projects, type Project, type ProjectId } from "src/data";
+import LinkBtn from "./LinkBtn.astro";
+import Svg from "./Svg.astro";
+import TechnologyIcons from "./TechnologyIcons.astro";
 
 interface Props {
-  projectId: ProjectIds;
+  projectId: ProjectId;
   title: string;
 }
 
@@ -15,47 +17,37 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
 ---
 
 <li
-  class="card flex-column align-items-start p-7 br-3 h-100 border-box"
+  class="card flex-column align-items-start p-6 br-3 h-100 border-box"
   style={`--border-colour: ${project.colour};`}
 >
-  {
-    project.technologies.length > 1 ? (
-      <Logo id={projectId} size={55} />
-    ) : (
-      <a
-        target="_blank"
-        class="block m-0"
-        href={technologyFromId[project.technologies[0]].link}
-        title={technologyFromId[project.technologies[0]].name}
-      >
-        <Logo id={project.technologies[0]} size={55} />
-      </a>
-    )
-  }
-  <h2 class="fs-2xl pt-5">{title}</h2>
-  {
-    project.technologies.length > 1 && (
-      <div class="flex-row-center flex-wrap gap-2">
-        {project.technologies.map((tagId) => {
-          const tag = technologyFromId[tagId];
-          return (
-            <div class="pr-3 py-1">
-              <a
-                target="_blank"
-                class="block m-0"
-                href={tag.link}
-                title={tag.name}
-              >
-                <Logo id={tagId} size={30} />
-              </a>
-            </div>
-          );
-        })}
-      </div>
-    )
-  }
-  <p class="overflow text-secondary" set:html={project.description} />
-  <a href=`/projects/${projectId}`>Read More</a>
+  <div class="flex-row-center justify-between self-stretch align-items-start">
+    <Logo id={projectId} size={55} />
+    <a
+      href=`/projects/${projectId}`
+      class="details-link flex-row-center px-4 py-3 gap-1 br-2"
+    >
+      <span class="details-text semibold pl-3">Details</span>
+      <span class="details-icon flex-row-center">
+        <Svg id="chevron-right" size={22} />
+      </span>
+    </a>
+  </div>
+  <h2>{title}</h2>
+  <span class="mt-3">
+    <TechnologyIcons technologies={project.technologies} />
+  </span>
+  <p class="overflow text-secondary mt-4" set:html={project.description} />
+  <div class="flex-row-center gap-3 w-100 mt-7">
+    <RepoLink repo={project.repo} />
+    {
+      project.link !== "" && (
+        <LinkBtn href={project.link} disabled={false}>
+          <Svg id="outlink" size={20} />
+          Open
+        </LinkBtn>
+      )
+    }
+  </div>
 </li>
 <style>
   li {
@@ -66,20 +58,26 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
       transition: border-color 0.1s ease-in-out;
       text-decoration: none;
       min-width: var(--card-width);
-      background-color: hsl(var(--grey-900) / 0.2);
+
+      /* Background */
+      background-color: hsl(var(--grey-950));
+      background-image: radial-gradient(
+        circle at var(--x) var(--y),
+        hsl(var(--grey-900) / 0.7) 0%,
+        transparent 20%
+      );
+      background-attachment: fixed;
 
       --_blur: var(--spacing-3);
-
       &:is(:hover, :focus-within) {
         border-color: var(--border-colour);
-        background-color: hsl(var(--grey-900) / 0.7);
         box-shadow:
           0 0 var(--_blur) var(--border-colour),
           inset 0 0 var(--_blur) var(--border-colour);
       }
 
       & .overflow {
-        --_line-height: 1.5em;
+        --_line-height: 1.35em;
         --_number_of_lines: 4;
         --_height: calc(var(--_number_of_lines) * var(--_line-height));
         display: block;
@@ -91,6 +89,34 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         overflow: hidden;
         text-overflow: ellipsis;
         max-height: var(--_height);
+      }
+
+      & .details-link {
+        /* Styling */
+        justify-content: flex-end;
+        background-color: hsl(var(--grey-800) / 0.5);
+
+        /* Animation */
+        text-decoration: none;
+        width: var(--spacing-6);
+        overflow-x: clip;
+        interpolate-size: allow-keywords;
+        white-space: nowrap;
+        transition: all 400ms ease-in-out;
+
+        & .details-text {
+          visibility: hidden;
+        }
+
+        &:is(:hover, :focus-visible) {
+          /* border-color: hsl(var(--grey-800)); */
+          background-color: hsl(var(--grey-800));
+          width: fit-content;
+
+          & .details-text {
+            visibility: visible;
+          }
+        }
       }
     }
   }

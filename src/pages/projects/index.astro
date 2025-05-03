@@ -1,13 +1,17 @@
 ---
 import Card from "@components/Card.astro";
 import Page from "@layouts/Page.astro";
-import { projects } from "src/projects";
+import { projects } from "src/data";
 ---
 
 <Page title="Adam Smith">
-  <div class="container fixed">
+  <div class="container fixed mx-auto mt-5">
     <h1>Projects</h1>
-    <ul role="list" class="link-card-grid align-items-center gap-3 p-0">
+    <ul
+      id="projects-grid"
+      role="list"
+      class="link-card-grid align-items-center gap-3 p-0"
+    >
       {
         projects.map((project) => (
           <Card projectId={project.id} title={project.name} />
@@ -16,6 +20,16 @@ import { projects } from "src/projects";
     </ul>
   </div>
   <style>
+    html {
+      background-image: repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent var(--bg-pattern-size),
+        var(--bg-color-accent) var(--bg-pattern-size),
+        var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
+      );
+    }
+
     .container {
       --card-width: max(17rem, 35ch);
       min-width: var(--card-width);
@@ -27,4 +41,11 @@ import { projects } from "src/projects";
       }
     }
   </style>
+  <script>
+    const projectsGrid = document.getElementById("projects-grid");
+    document.addEventListener("mousemove", (event) => {
+      projectsGrid?.style.setProperty("--x", `${event.x}px`);
+      projectsGrid?.style.setProperty("--y", `${event.y}px`);
+    });
+  </script>
 </Page>

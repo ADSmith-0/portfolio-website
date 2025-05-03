@@ -1,13 +1,22 @@
 ---
-import type { ProjectIds, TechnologyIds } from "src/types";
 import Svg from "@components/Svg.astro";
 
 interface Props {
-  id: ProjectIds | TechnologyIds;
+  id: string;
   size?: number;
 }
 
 const { id, size } = Astro.props;
+
+function getId(id: Props["id"]): Props["id"] {
+  if (id === "react-native") {
+    return "react";
+  }
+  if (id === "sveltekit") {
+    return "svelte";
+  }
+  return id;
+}
 ---
 
-<Svg id={id === "react-native" ? "react" : id} size={size} />
+<Svg id={getId(id)} size={size} />
