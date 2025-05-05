@@ -1,60 +1,48 @@
 import * as THREE from "three";
-import {
-  Line2,
-  LineGeometry,
-  LineMaterial,
-} from "three/examples/jsm/Addons.js";
+import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+import { RenderPass, UnrealBloomPass } from "three/examples/jsm/Addons.js";
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  45,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000,
-);
-const renderer = new THREE.WebGLRenderer();
-
+init();
 function init() {
-  camera.position.set(-22, 3, 0);
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#141415");
+
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000,
+  );
+  camera.position.set(-22, 2, 0);
   camera.lookAt(0, 0, 0);
 
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const gridHelper = new THREE.GridHelper(100, 100, 0xffffff, 0xffffff);
+  scene.add(gridHelper);
+
+  const bloomPass = new UnrealBloomPass(
+    new THREE.Vector2(window.innerWidth, window.innerHeight),
+    0.5,
+    0.5,
+    0.1,
+  );
+
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  composer.addPass(bloomPass);
+
+  renderer.setAnimationLoop(animate(composer));
 
   const container = document.getElementById("three-container");
   container?.appendChild(renderer.domElement);
 
-  scene.background = new THREE.Color("#141415");
 }
 
-function main() {
-  generateGrid(20);
-  renderer.setAnimationLoop(animate);
+function animate(composer: EffectComposer) {
+  return () => {
+    composer.render();
+  };
 }
-
-function animate() {
-  renderer.render(scene, camera);
-}
-
-function generateGrid(size: number) {
-  const material = new LineMaterial({
-    color: 0xeeeeee,
-    linewidth: 1.5,
-  });
-
-  for (let i = -size; i <= size; i++) {
-    const xpoints = new Float32Array([i, 0, -size, i, 0, size]);
-    const xgeometry = new LineGeometry();
-    xgeometry.setPositions(xpoints);
-    const xline = new Line2(xgeometry, material);
-    scene.add(xline);
-
-    const zpoints = new Float32Array([-size, 0, i, size, 0, i]);
-    const zgeometry = new LineGeometry();
-    zgeometry.setPositions(zpoints);
-    const zline = new Line2(zgeometry, material);
-    scene.add(zline);
-  }
-}
-
-init();
-main();
