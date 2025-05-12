@@ -5,7 +5,11 @@ import { RenderPass, UnrealBloomPass } from "three/examples/jsm/Addons.js";
 init();
 function init() {
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color("#141415");
+  const backgroundColour = new THREE.Color("#141415");
+  scene.background = backgroundColour;
+  const near = 1;
+  const far = 40;
+  scene.fog = new THREE.Fog(backgroundColour, near, far);
 
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -25,8 +29,8 @@ function init() {
 
   const bloomPass = new UnrealBloomPass(
     new THREE.Vector2(window.innerWidth, window.innerHeight),
-    0.5,
-    0.5,
+    0.8,
+    0.8,
     0.1,
   );
 
@@ -38,7 +42,6 @@ function init() {
 
   const container = document.getElementById("three-container");
   container?.appendChild(renderer.domElement);
-
 }
 
 function animate(composer: EffectComposer) {

@@ -5,9 +5,11 @@ import Typewriter from "@components/Typewriter.astro";
 
 <Page title="Adam Smith">
   <div id="three-container"></div>
-  <Typewriter id="typewriter">
-    <h1>Hi, I'm Adam</h1>
-  </Typewriter>
+  <div class="full-height">
+    <Typewriter id="typewriter">
+      <h1>Hi, I'm Adam</h1>
+    </Typewriter>
+  </div>
 </Page>
 
 <style>
@@ -15,6 +17,9 @@ import Typewriter from "@components/Typewriter.astro";
     position: fixed;
     top: 0;
     z-index: -1;
+  }
+  .full-height {
+    height: 100vh;
   }
   h1 {
     font-size: var(--font-size-4xl);
