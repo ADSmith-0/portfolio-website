@@ -8,7 +8,7 @@ function init() {
   const backgroundColour = new THREE.Color("#141415");
   scene.background = backgroundColour;
   const near = 1;
-  const far = 40;
+  const far = 30;
   scene.fog = new THREE.Fog(backgroundColour, near, far);
 
   const camera = new THREE.PerspectiveCamera(
