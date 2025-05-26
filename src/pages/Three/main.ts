@@ -1,15 +1,27 @@
 import * as THREE from "three";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
-import { RenderPass, UnrealBloomPass } from "three/examples/jsm/Addons.js";
+import {
+  GLTFLoader,
+  RenderPass,
+  UnrealBloomPass,
+} from "three/examples/jsm/Addons.js";
 
 init();
 function init() {
   const scene = new THREE.Scene();
+
   const backgroundColour = new THREE.Color("#141415");
   scene.background = backgroundColour;
+
   const near = 1;
   const far = 30;
   scene.fog = new THREE.Fog(backgroundColour, near, far);
+
+  const light = new THREE.AmbientLight(0x404040);
+  scene.add(light);
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  directionalLight.position.set(-22, 2, 0);
+  scene.add(directionalLight);
 
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -26,6 +38,21 @@ function init() {
 
   const gridHelper = new THREE.GridHelper(100, 100, 0xffffff, 0xffffff);
   scene.add(gridHelper);
+
+  const loader = new GLTFLoader();
+  loader.load(
+    "./models/html5.glb",
+    (gltf) => {
+      const icon = gltf.scene;
+      icon.position.set(-19.5, 2, -2);
+      icon.rotateY(0.6);
+      scene.add(icon);
+    },
+    undefined,
+    (err) => {
+      console.error(err);
+    },
+  );
 
   const bloomPass = new UnrealBloomPass(
     new THREE.Vector2(window.innerWidth, window.innerHeight),
