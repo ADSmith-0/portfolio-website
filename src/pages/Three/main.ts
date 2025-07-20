@@ -33,7 +33,7 @@ function init() {
   camera.lookAt(0, 0, 0);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(window.devicePixelRatio * 2);
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   const gridHelper = new THREE.GridHelper(100, 100, 0xffffff, 0xffffff);
@@ -56,9 +56,9 @@ function init() {
 
   const bloomPass = new UnrealBloomPass(
     new THREE.Vector2(window.innerWidth, window.innerHeight),
-    0.8,
-    0.8,
-    0.1,
+    1.5,
+    0.2,
+    0.0,
   );
 
   const composer = new EffectComposer(renderer);
