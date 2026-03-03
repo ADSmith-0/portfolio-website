@@ -4,15 +4,52 @@ import Typewriter from "@components/Typewriter.astro";
 ---
 
 <Page title="Adam Smith">
-  <Typewriter>
-    <h1>Hi, I'm Adam</h1>
-  </Typewriter>
+  <div class="relative background">
+    <Typewriter>
+      <h1>Hi, I'm Adam</h1>
+    </Typewriter>
+    <div id="html5" class="absolute">
+      <img src="./html5.gif" />
+    </div>
+    <div id="css3" class="absolute">
+      <img src="./css3.gif" />
+    </div>
+    <div id="typescript" class="absolute">
+      <img src="./typescript.gif" />
+    </div>
+  </div>
 </Page>
 
 <style>
   h1 {
+    padding-top: 15rem;
+    margin: auto;
     font-size: var(--font-size-4xl);
     text-align: center;
     color: hsl(var(--white));
+  }
+  .background {
+    height: calc(100vh - var(--navbar-height));
+    width: 100vw;
+    background-image: url("./bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  img {
+    height: 250px;
+    width: 250px;
+    transform: translate(-50%, -50%);
+  }
+  #html5 {
+    top: 20%;
+    left: 30%;
+  }
+  #css3 {
+    top: 25%;
+    right: 15%;
+  }
+  #typescript {
+    bottom: 5%;
+    right: 30%;
   }
 </style>
