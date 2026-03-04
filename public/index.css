@@ -95,12 +95,11 @@ a.blue:visited {
 }
 
 footer {
-  padding: var(--spacing-5);
-  padding-left: var(--spacing-10);
+  padding: var(--spacing-7) var(--spacing-7) var(--spacing-8) var(--spacing-10);
   background-color: hsl(var(--grey-900));
 }
 
-.fixed {
+.fixed-width {
   width: 70rem;
 
   @media (max-width: 80rem) {
@@ -110,6 +109,10 @@ footer {
   @media (max-width: 54rem) {
     width: 95%;
   }
+}
+
+.fixed-char-width {
+  max-width: 70ch;
 }
 
 .border-box {
