@@ -6,7 +6,7 @@ import Page from "@layouts/Page.astro";
 ---
 
 <Page title="About">
-  <div class="fixed mx-auto">
+  <div class="fixed-width mx-auto pb-7">
     <h1>About</h1>
     <p class="pb-6">
       I'm a fullstack developer that enjoys learning new things and trying new
@@ -125,9 +125,6 @@ import Page from "@layouts/Page.astro";
 </Page>
 
 <style>
-  .fixed {
-    width: 70ch;
-  }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));

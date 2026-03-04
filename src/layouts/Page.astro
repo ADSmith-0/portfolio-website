@@ -31,23 +31,23 @@ const { title } = Astro.props;
     <main style="margin-top: var(--navbar-height);">
       <slot />
     </main>
+    <footer>
+      <div>
+        <div>
+          <p class="text-secondary semibold pb-4">Resources</p>
+          <a href="/attribution">Attribution</a>
+        </div>
+        <div>
+          <p class="text-secondary semibold pb-5">Links</p>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/adam-smith-9728511ba/">LinkedIn</a
+          >
+          <a target="_blank" href="https://github.com/ADSmith-0">Github</a>
+        </div>
+      </div>
+    </footer>
   </body>
-  <footer>
-    <div>
-      <div>
-        <p class="text-secondary semibold pb-4">Resources</p>
-        <a href="/attribution">Attribution</a>
-      </div>
-      <div>
-        <p class="text-secondary semibold pb-5">Links</p>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/adam-smith-9728511ba/">LinkedIn</a
-        >
-        <a target="_blank" href="https://github.com/ADSmith-0">Github</a>
-      </div>
-    </div>
-  </footer>
 </html>
 
 <style>

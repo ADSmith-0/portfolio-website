@@ -30,7 +30,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
         }
       </div>
     </aside>
-    <div class="fixed-width pl-10 pt-7 pb-10">
+    <div class="fixed-char-width pl-10 pt-7 pb-10">
       <h1>{project.name}</h1>
       <p set:html={project.description} />
       <h2 class="mt-8 text-secondary fs-xl fw-normal">Current Version</h2>
@@ -101,9 +101,6 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
           }
         }
       }
-    }
-    & > .fixed-width {
-      max-width: 70ch;
     }
   }
   .selected {
