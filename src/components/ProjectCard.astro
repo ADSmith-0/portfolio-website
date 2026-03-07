@@ -1,0 +1,106 @@
+---
+import Card from "@components/Card.astro";
+import Logo from "@components/Logo.astro";
+import RepoLink from "@components/RepoLink.astro";
+import { projects, type Project, type ProjectId } from "src/data";
+import LinkBtn from "./LinkBtn.astro";
+import Svg from "./Svg.astro";
+import TechnologyIcons from "./TechnologyIcons.astro";
+
+interface Props {
+  projectId: ProjectId;
+  title: string;
+}
+
+const { projectId, title } = Astro.props;
+
+const project: Project = projects.find(({ id }) => id === projectId)!;
+---
+
+<Card colour={project.colour}>
+  <span class="background p-6 br-2">
+    <div class="flex-row-center justify-between self-stretch align-items-start">
+      <Logo id={projectId} size={55} />
+      <a
+        href=`/projects/${projectId}`
+        class="details-link flex-row-center px-4 py-3 gap-1 br-2"
+      >
+        <span class="details-text semibold pl-3">Details</span>
+        <span class="details-icon flex-row-center">
+          <Svg id="chevron-right" size={22} />
+        </span>
+      </a>
+    </div>
+    <h2>{title}</h2>
+    <span class="mt-3">
+      <TechnologyIcons technologies={project.technologies} />
+    </span>
+    <p class="overflow text-secondary mt-4" set:html={project.description} />
+    <div class="flex-row-center gap-3 w-100 mt-7">
+      <RepoLink repo={project.repo} />
+      {
+        project.link !== "" && (
+          <LinkBtn href={project.link} disabled={false}>
+            <Svg id="outlink" size={20} />
+            Open
+          </LinkBtn>
+        )
+      }
+    </div>
+  </span>
+</Card>
+<style>
+  .background {
+    background-color: hsl(var(--grey-950));
+    background-image: radial-gradient(
+      circle at var(--x) var(--y),
+      hsl(var(--grey-900) / 0.7) 0%,
+      transparent 20%
+    );
+    background-attachment: fixed;
+
+    & .overflow {
+      --_line-height: 1.35em;
+      --_number_of_lines: 4;
+      --_height: calc(var(--_number_of_lines) * var(--_line-height));
+      display: block;
+      display: -webkit-box;
+      -webkit-line-clamp: var(--_number_of_lines);
+      -webkit-box-orient: vertical;
+      line-height: var(--_line-height);
+      flex: 0 1 var(--_height);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: var(--_height);
+    }
+
+    & .details-link {
+      /* Styling */
+      justify-content: flex-end;
+      background-color: hsl(var(--grey-800) / 0.5);
+
+      /* Animation */
+      text-decoration: none;
+      width: var(--spacing-6);
+      overflow-x: clip;
+      interpolate-size: allow-keywords;
+      white-space: nowrap;
+      transition: all 400ms ease-in-out;
+
+      & .details-text {
+        visibility: hidden;
+      }
+
+      &:is(:hover, :focus-visible) {
+        /* border-color: hsl(var(--grey-800)); */
+        background-color: hsl(var(--grey-800));
+        width: fit-content;
+
+        & .details-text {
+          visibility: visible;
+        }
+      }
+    }
+  }
+</style>
+

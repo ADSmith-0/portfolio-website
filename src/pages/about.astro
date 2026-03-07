@@ -10,16 +10,12 @@ import Page from "@layouts/Page.astro";
     <h1>About</h1>
     <p class="pb-6">
       I'm a fullstack developer that enjoys learning new things and trying new
-      technologies. I've worked with lots of different projects, below is a
+      technologies. I've worked on lots of different projects, below is a
       non‐exhaustive list of things that I've enjoyed and what I'm currently
       working on:
     </p>
     <div class="grid">
-      <AboutCard
-        title="Favourite Technologies"
-        colourStart="crimson"
-        colourEnd="darkorange"
-      >
+      <AboutCard title="Favourite Technologies" colour="darkorange">
         <li class="flex-row-center gap-3">
           <TechnologyIcon technologyId="astro" size={28} />
           Astro
@@ -37,11 +33,7 @@ import Page from "@layouts/Page.astro";
           Go
         </li>
       </AboutCard>
-      <AboutCard
-        title="Want to learn"
-        colourStart="orange"
-        colourEnd="greenyellow"
-      >
+      <AboutCard title="Want to learn" colour="greenyellow">
         <li class="flex-row-center gap-3">
           <TechnologyIcon technologyId="rust" size={28} />Rust
         </li>
@@ -65,16 +57,26 @@ import Page from "@layouts/Page.astro";
           Websockets
         </li>
       </AboutCard>
-      <AboutCard
-        title="Favourite learning resources"
-        colourStart="springgreen"
-        colourEnd="turquoise"
-      >
+      <AboutCard title="Favourite learning resources" colour="turquoise">
         <li>
           <a
             class="blue"
             target="_blank"
-            href="https://www.youtube.com/@ThePrimeTimeagen/videos">Primeagen</a
+            href="https://www.youtube.com/@simondev758">SimonDev</a
+          >
+        </li>
+        <li>
+          <a
+            class="blue"
+            target="_blank"
+            href="https://www.youtube.com/@dreamsofcode/videos">Dreams of Code</a
+          >
+        </li>
+        <li>
+          <a
+            class="blue"
+            target="_blank"
+            href="https://www.youtube.com/@awesome-coding/videos">Awesome</a
           >
         </li>
         <li>
@@ -100,11 +102,7 @@ import Page from "@layouts/Page.astro";
           >
         </li>
       </AboutCard>
-      <AboutCard
-        title="Currently learning"
-        colourStart="darkviolet"
-        colourEnd="hotpink"
-      >
+      <AboutCard title="Currently learning" colour="hotpink">
         <li class="flex-row-center gap-3">
           <Logo id="c" size={28} /><a
             class="blue"
@@ -125,6 +123,15 @@ import Page from "@layouts/Page.astro";
 </Page>
 
 <style>
+  html {
+    background-image: repeating-linear-gradient(
+      150deg,
+      transparent,
+      transparent var(--bg-pattern-size),
+      var(--bg-color-accent) var(--bg-pattern-size),
+      var(--bg-color-accent) calc(var(--bg-pattern-size) + 1px)
+    );
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
