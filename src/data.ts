@@ -121,7 +121,7 @@ export const technologyFromId: Record<
   },
   blender: {
     name: "Blender",
-    link: "https://www.blender.org/download/",
+    link: "https://www.blender.org/about/",
   },
 };
 
