@@ -34,7 +34,9 @@ export type TechnologyId =
   | "zig"
   | "elixir"
   | "htmx"
-  | "websockets";
+  | "websockets"
+  | "threejs"
+  | "blender";
 
 export type Version = Pick<Project, "technologies" | "repo" | "about"> &
   Partial<Pick<Project, "link">>;
@@ -113,6 +115,14 @@ export const technologyFromId: Record<
     name: "Websockets",
     link: "https://en.wikipedia.org/wiki/WebSocket",
   },
+  threejs: {
+    name: "Three.js",
+    link: "https://threejs.org/manual/#en/fundamentals",
+  },
+  blender: {
+    name: "Blender",
+    link: "https://www.blender.org/about/",
+  },
 };
 
 export const projects: Project[] = [
@@ -130,7 +140,8 @@ export const projects: Project[] = [
   {
     id: "js-cli-spinner",
     name: "JS CLI Spinner",
-    description: "A spinner to be used with Node.js for running commands. Uses <code>stderr</code> to make sure that any errors from the running script surface correctly. Also uses ASCII colour codes",
+    description:
+      "A spinner to be used with Node.js for running commands. Uses <code>stderr</code> to make sure that any errors from the running script surface correctly. Also uses ASCII colour codes",
     about:
       "Built this as part of a build tool for work, as all of the libraries that I came across seemed to be very big and heavy, and we generally try to avoid installing libraries unless we have to",
     technologies: ["javascript"],
@@ -250,7 +261,7 @@ export const projects: Project[] = [
       "My portfolio website for showing off my projects. This is the website that you are currently using",
     about:
       "For the current iteration I wanted to try out Astro. I wanted to make a proper SSG focused website with something as close to vanilla as possible, this website uses no libraries as a result and all effects, animation and functionality was written with basic DOM-based TypeScript. I've very much enjoyed using Astro as well as getting back to the basics",
-    technologies: ["astro"],
+    technologies: ["astro", "threejs", "blender"],
     link: "https://adsmith-0-dev.netlify.app/",
     repo: "https://github.com/adsmith-0/my-website",
     colour: "#ff5d01",
