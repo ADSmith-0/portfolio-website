@@ -66,6 +66,10 @@ const links: [href: string, label: string][] = [
     `nav > a[href='/${window.location.pathname.split("/")[1]}']`,
   ) as HTMLElement;
 
+  if (!currentlySelectedOption) {
+    return;
+  }
+
   currentlySelectedOption.classList.add("selected");
 
   const navbar = document.querySelector("nav")!;
