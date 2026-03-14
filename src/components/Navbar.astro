@@ -64,40 +64,38 @@ const links: [href: string, label: string][] = [
 <script>
   const currentlySelectedOption = document.querySelector(
     `nav > a[href='/${window.location.pathname.split("/")[1]}']`,
-  ) as HTMLElement;
+  );
 
-  if (!currentlySelectedOption) {
-    return;
+  if (currentlySelectedOption !== null) {
+    currentlySelectedOption.classList.add("selected");
+
+    const navbar = document.querySelector("nav")!;
+
+    function resetUnderline() {
+      moveUnderlineToElement(currentlySelectedOption as HTMLElement);
+    }
+
+    resetUnderline();
+
+    navbar.addEventListener("mouseleave", resetUnderline);
+    navbar.addEventListener("focusout", resetUnderline);
+
+    function moveUnderlineToElement(el: HTMLElement) {
+      navbar.style.cssText = `--underline-offset-width: ${el.offsetWidth}px; --underline-offset-x: ${el.offsetLeft}px;`;
+    }
+
+    function onNavOptionHover(event: Event) {
+      moveUnderlineToElement(event.target as HTMLElement);
+    }
+
+    const navbarOptions = document.querySelectorAll("nav > a");
+    navbarOptions.forEach((option) => {
+      option.addEventListener("mouseover", onNavOptionHover);
+      option.addEventListener("focus", onNavOptionHover);
+    });
+
+    setTimeout(() => {
+      navbar.classList.remove("no-transition");
+    }, 0);
   }
-
-  currentlySelectedOption.classList.add("selected");
-
-  const navbar = document.querySelector("nav")!;
-
-  function resetUnderline() {
-    moveUnderlineToElement(currentlySelectedOption);
-  }
-
-  resetUnderline();
-
-  navbar.addEventListener("mouseleave", resetUnderline);
-  navbar.addEventListener("focusout", resetUnderline);
-
-  function moveUnderlineToElement(el: HTMLElement) {
-    navbar.style.cssText = `--underline-offset-width: ${el.offsetWidth}px; --underline-offset-x: ${el.offsetLeft}px;`;
-  }
-
-  function onNavOptionHover(event: Event) {
-    moveUnderlineToElement(event.target as HTMLElement);
-  }
-
-  const navbarOptions = document.querySelectorAll("nav > a");
-  navbarOptions.forEach((option) => {
-    option.addEventListener("mouseover", onNavOptionHover);
-    option.addEventListener("focus", onNavOptionHover);
-  });
-
-  setTimeout(() => {
-    navbar.classList.remove("no-transition");
-  }, 0);
 </script>
