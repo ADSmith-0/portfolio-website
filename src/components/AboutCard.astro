@@ -11,7 +11,7 @@ const { title, colour } = Astro.props;
 
 <Card colour={colour}>
   <div class="container h-100 self-stretch br-2 py-4 px-5">
-    <h3 class="fs-m text-secondary mb-3">{title}</h3>
+    <h2 class="fs-m text-secondary pt-0 pb-5">{title}</h2>
     <ul class="list flex-column gap-3">
       <slot />
     </ul>
