@@ -9,13 +9,31 @@ import Typewriter from "@components/Typewriter.astro";
       <h1>Hi, I'm Adam</h1>
     </Typewriter>
     <div id="html5" class="absolute">
-      <img src="./html5.gif" alt="html5 logo gif" height="250" width="250" />
+      <img
+        id="img-html5"
+        src="./html5.png"
+        alt="html5 logo"
+        height="250"
+        width="250"
+      />
     </div>
     <div id="css3" class="absolute">
-      <img src="./css3.gif" alt="css3 logo gif" height="250" width="250" />
+      <img
+        id="img-css3"
+        src="./css3.png"
+        alt="css3 logo"
+        height="250"
+        width="250"
+      />
     </div>
     <div id="typescript" class="absolute">
-      <img src="./typescript.gif" alt="typescript logo gif" height="250" width="250" />
+      <img
+        id="img-typescript"
+        src="./typescript.png"
+        alt="typescript logo"
+        height="250"
+        width="250"
+      />
     </div>
   </div>
 </Page>
@@ -51,3 +69,23 @@ import Typewriter from "@components/Typewriter.astro";
     right: 30%;
   }
 </style>
+
+<script defer is:inline>
+  const html = document.querySelector("html");
+  if (html && html.clientWidth > 500) {
+    const html5Img = document.getElementById("img-html5");
+    if (html5Img) {
+      html5Img.src = "./html5.gif";
+    }
+
+    const css3Img = document.getElementById("img-css3");
+    if (css3Img) {
+      css3Img.src = "./css3.gif";
+    }
+
+    const typescriptImg = document.getElementById("img-typescript");
+    if (typescriptImg) {
+      typescriptImg.src = "./typescript.gif";
+    }
+  }
+</script>
