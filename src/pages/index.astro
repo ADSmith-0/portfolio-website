@@ -9,31 +9,34 @@ import Typewriter from "@components/Typewriter.astro";
       <h1>Hi, I'm Adam</h1>
     </Typewriter>
     <div id="html5" class="absolute">
-      <img
-        id="img-html5"
-        src="./html5.png"
-        alt="html5 logo"
-        height="250"
-        width="250"
-      />
+      <picture>
+        <source srcset="./html5.gif" media="(min-width: 500px)" />
+        <img src="./html5.png" alt="html5 logo" height="250" width="250" />
+      </picture>
     </div>
     <div id="css3" class="absolute">
-      <img
-        id="img-css3"
-        src="./css3.png"
-        alt="css3 logo"
-        height="250"
-        width="250"
-      />
+      <picture>
+        <source srcset="./css3.gif" media="(min-width: 500px)" />
+        <img
+          id="img-css3"
+          src="./css3.png"
+          alt="css3 logo"
+          height="250"
+          width="250"
+        />
+      </picture>
     </div>
     <div id="typescript" class="absolute">
-      <img
-        id="img-typescript"
-        src="./typescript.png"
-        alt="typescript logo"
-        height="250"
-        width="250"
-      />
+      <picture>
+        <source srcset="./typescript.gif" media="(min-width: 500px)" />
+        <img
+          id="img-typescript"
+          src="./typescript.png"
+          alt="typescript logo"
+          height="250"
+          width="250"
+        />
+      </picture>
     </div>
   </div>
 </Page>
@@ -69,23 +72,3 @@ import Typewriter from "@components/Typewriter.astro";
     right: 30%;
   }
 </style>
-
-<script defer is:inline>
-  const html = document.querySelector("html");
-  if (html && html.clientWidth > 500) {
-    const html5Img = document.getElementById("img-html5");
-    if (html5Img) {
-      html5Img.src = "./html5.gif";
-    }
-
-    const css3Img = document.getElementById("img-css3");
-    if (css3Img) {
-      css3Img.src = "./css3.gif";
-    }
-
-    const typescriptImg = document.getElementById("img-typescript");
-    if (typescriptImg) {
-      typescriptImg.src = "./typescript.gif";
-    }
-  }
-</script>
