@@ -9,13 +9,34 @@ import Typewriter from "@components/Typewriter.astro";
       <h1>Hi, I'm Adam</h1>
     </Typewriter>
     <div id="html5" class="absolute">
-      <img src="./html5.gif" alt="html5 logo gif" height="250" width="250" />
+      <picture>
+        <source srcset="./html5.gif" media="(min-width: 500px)" />
+        <img src="./html5.png" alt="html5 logo" height="250" width="250" />
+      </picture>
     </div>
     <div id="css3" class="absolute">
-      <img src="./css3.gif" alt="css3 logo gif" height="250" width="250" />
+      <picture>
+        <source srcset="./css3.gif" media="(min-width: 500px)" />
+        <img
+          id="img-css3"
+          src="./css3.png"
+          alt="css3 logo"
+          height="250"
+          width="250"
+        />
+      </picture>
     </div>
     <div id="typescript" class="absolute">
-      <img src="./typescript.gif" alt="typescript logo gif" height="250" width="250" />
+      <picture>
+        <source srcset="./typescript.gif" media="(min-width: 500px)" />
+        <img
+          id="img-typescript"
+          src="./typescript.png"
+          alt="typescript logo"
+          height="250"
+          width="250"
+        />
+      </picture>
     </div>
   </div>
 </Page>
@@ -30,24 +51,21 @@ import Typewriter from "@components/Typewriter.astro";
   }
   .background {
     height: calc(100vh - var(--navbar-height));
-    width: 100vw;
+    width: 100%;
     background-image: url("./grid.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
-  img {
-    transform: translate(-50%, -50%);
-  }
   #html5 {
-    top: 20%;
-    left: 30%;
+    top: 0%;
+    left: 20%;
   }
   #css3 {
-    top: 25%;
+    top: 7.5%;
     right: 15%;
   }
   #typescript {
-    bottom: 5%;
-    right: 30%;
+    bottom: 10%;
+    right: 35%;
   }
 </style>
