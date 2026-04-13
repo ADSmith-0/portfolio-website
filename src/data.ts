@@ -158,7 +158,7 @@ export const projects: Project[] = [
       "For the current iteration I wanted to try out Astro. I wanted to make a proper SSG focused website with something as close to vanilla as possible, this website uses no libraries as a result and all effects, animation and functionality was written with basic DOM-based TypeScript. I've also used Blender and Three.js to create the 3D gifs and the background for the home page. I've very much enjoyed using Astro as well as getting back to the basics",
     technologies: ["astro", "threejs", "blender"],
     link: "https://adsmith-0-dev.netlify.app/",
-    repo: "https://github.com/adsmith-0/my-website",
+    repo: "https://github.com/adsmith-0/portfolio-website",
     colour: "#ff5d01",
     versions: [
       {
