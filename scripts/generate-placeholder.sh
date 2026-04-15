@@ -12,7 +12,7 @@ convert -dispose Background $1.png -fuzz 2% -transparent "#404040" $1_alpha.png
 # Convert to webp
 imagemin $1_alpha.png --plugin=webp > $1.webp
 
-rm $1.png
+rm $1_alpha.png
 
 mv $1.webp ../public
 
