@@ -13,7 +13,7 @@ convert \
   -layers OptimizeTransparency \
   $1.gif
 
-gifsicle -O3 --colors 128 $1.gif -o $1_optimised.gif
+gifsicle -O3 --colors 128 --lossy=50 $1.gif -o $1_optimised.gif
 
 rm $1.gif
 
