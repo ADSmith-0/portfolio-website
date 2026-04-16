@@ -10,7 +10,7 @@ const links: [href: string, label: string][] = [
   <nav class="flex-row-center relative ml-7 gap-7 no-transition">
     {
       links.map(([href, label]) => (
-        <a href={href} class="px-4 pt-4 mt-2 pb-3">
+        <a href={href} class="nav-link px-4 pt-4 mt-2 pb-3 semibold">
           {label}
         </a>
       ))
@@ -28,8 +28,9 @@ const links: [href: string, label: string][] = [
     height: var(--navbar-height);
     box-sizing: border-box;
   }
-  a {
+  a.nav-link {
     text-decoration: none;
+    color: hsl(var(--grey-200));
 
     &.selected {
       font-weight: bold;
