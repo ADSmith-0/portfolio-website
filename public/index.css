@@ -52,8 +52,10 @@
 }
 
 html {
-  font-family: "Inter", Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-    Arial, sans-serif;
+  /* Sans-serif */
+  font-family: Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+  /* Monospace */
+  /* font-family: "Courier New", "Lucida Console", Monaco, monospace; */
   background: var(--background);
 }
 
