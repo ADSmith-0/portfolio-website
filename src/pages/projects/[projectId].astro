@@ -115,7 +115,6 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
   const aside = document.querySelector("aside");
 
   if (aside) {
-    console.log("navbarHeight:", navbarHeight);
     aside.style.height = window.innerHeight - (navbarHeight ?? 0) + "px";
   }
 </script>
