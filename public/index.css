@@ -45,7 +45,7 @@
 
   --background: hsl(var(--grey-950));
 
-  --bg-color-accent: hsl(var(--grey-900) / 0.3);
+  --bg-color-accent: hsl(var(--grey-800) / 0.3);
   --bg-pattern-size: 100px;
 
   --navbar-height: 5.5rem;
