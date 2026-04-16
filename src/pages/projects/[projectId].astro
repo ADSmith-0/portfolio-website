@@ -22,7 +22,7 @@ const project: Project = projects.find(({ id }) => id === projectId)!;
           projects.map((project) => (
             <a
               href={`/projects/${project.id}`}
-              class={`${projectId === project.id ? "selected semibold" : ""} px-6 py-4 br-3`}
+              class={`${projectId === project.id ? "selected semibold" : ""} px-6 pb-4 pt-5 br-3`}
               data-astro-prefetch
             >
               {project.name}
