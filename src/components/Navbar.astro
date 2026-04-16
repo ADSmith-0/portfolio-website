@@ -10,7 +10,7 @@ const links: [href: string, label: string][] = [
   <nav class="flex-row-center relative ml-7 gap-7 no-transition">
     {
       links.map(([href, label]) => (
-        <a href={href} class="nav-link px-4 pt-4 mt-2 pb-3 semibold">
+        <a href={href} class="nav-link px-4 pt-4 mt-2 pb-3 semibold" data-astro-prefetch>
           {label}
         </a>
       ))
