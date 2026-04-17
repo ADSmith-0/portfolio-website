@@ -14,34 +14,25 @@ import Typewriter from "@components/Typewriter.astro";
       />and generally tinkering around with code
     </h2>
     <div id="html5" class="absolute">
-      <picture>
-        <source srcset="./html5.gif" media="(min-width: 500px)" />
-        <img src="./html5.webp" alt="html5 logo" height="175" width="175" />
-      </picture>
+      <img src="./html5.webp" alt="html5 logo" height="175" width="175" />
     </div>
     <div id="css3" class="absolute">
-      <picture>
-        <source srcset="./css3.gif" media="(min-width: 500px)" />
-        <img
-          id="img-css3"
-          src="./css3.webp"
-          alt="css3 logo"
-          height="175"
-          width="175"
-        />
-      </picture>
+      <img
+        id="img-css3"
+        src="./css3.webp"
+        alt="css3 logo"
+        height="175"
+        width="175"
+      />
     </div>
     <div id="typescript" class="absolute">
-      <picture>
-        <source srcset="./typescript.gif" media="(min-width: 500px)" />
-        <img
-          id="img-typescript"
-          src="./typescript.webp"
-          alt="typescript logo"
-          height="175"
-          width="175"
-        />
-      </picture>
+      <img
+        id="img-typescript"
+        src="./typescript.webp"
+        alt="typescript logo"
+        height="175"
+        width="175"
+      />
     </div>
   </div>
 </Page>
@@ -121,3 +112,31 @@ import Typewriter from "@components/Typewriter.astro";
     }
   }
 </style>
+
+<script defer is:inline>
+  function main() {
+    if (window.innerWidth <= 500) {
+      return;
+    }
+    function video(name) {
+      return `<video autoplay loop muted playsinline style="height:175px; width=175px;">
+  <source src="${name}.webm" type="video/webm" />
+  <source src="${name}.mp4" type="video/mp4" />
+</video>`;
+    }
+    const html5 = document.querySelector("#html5");
+    if (html5) {
+      html5.innerHTML = video("html5");
+    }
+    const css3 = document.querySelector("#css3");
+    if (css3) {
+      css3.innerHTML = video("css3");
+    }
+    const typescript = document.querySelector("#typescript");
+    if (typescript) {
+      typescript.innerHTML = video("typescript");
+    }
+  }
+
+  main();
+</script>
